@@ -1,0 +1,218 @@
+﻿.botonesReportesPequeño, .botonesGridPequeños {
+    display: none;
+}
+
+@media (max-width: 319px) and (min-width: 280px) {
+    .botonesReportes {
+        display: none;
+    }
+
+    .botonesReportesPequeño {
+        display: block;
+        margin-left: 110px;
+    }
+
+    .botonesGrid {
+        display: none;
+    }
+
+    .botonesGridPequeños {
+        display: block;
+        margin-left: 100px;
+    }
+}
+
+@media (max-width: 359px) and (min-width: 320px) {
+    .botonesReportes {
+        display: none;
+    }
+
+    .botonesReportesPequeño {
+        display: block;
+        margin-left: 150px;
+    }
+
+    .botonesGrid {
+        display: none;
+    }
+
+    .botonesGridPequeños {
+        display: block;
+        margin-left: 140px;
+    }
+}
+
+@media (max-width: 374px) and (min-width: 360px) {
+    .botonesReportes {
+        margin-left: 20px;
+    }
+
+    .botonesGrid {
+        margin-left: 120px;
+    }
+}
+
+@media (max-width: 409px) and (min-width: 375px) {
+    .botonesReportes {
+        margin-left: 30px;
+        /*margin-left: 70px;*/
+    }
+
+    .botonesGrid {
+        /*margin-left: 170px;*/
+        margin-left: 130px;
+    }
+}
+
+@media (max-width: 411px) and (min-width: 410px) {
+    .botonesReportes {
+        /*margin-left: 30px;*/
+        margin-left: 70px;
+    }
+
+    .botonesGrid {
+        margin-left: 170px;
+        /*margin-left: 130px;*/
+    }
+}
+
+@media (max-width: 539px) and (min-width: 414px) {
+    .botonesReportes {
+        /*margin-left: 80px;*/
+        margin-left: 70px;
+    }
+
+    .botonesGrid {
+        margin-left: 170px;
+    }
+}
+
+@media (max-width: 559px) and (min-width: 540px) {
+    .botonesReportes {
+        margin-left: 200px;
+    }
+
+    .botonesGrid {
+        margin-left: 300px;
+    }
+}
+
+@media (min-width: 560px) {
+    .botonesReportes {
+        margin-left: 230px;
+    }
+
+    .botonesGrid {
+        margin-left: 330px;
+    }
+}
+
+@media (min-width: 640px) {
+    .botonesReportes {
+        margin-left: 300px;
+    }
+
+    .botonesGrid {
+        margin-left: 400px;
+    }
+}
+
+@media (min-width: 660px) {
+    .botonesReportes {
+        margin-left: 330px;
+    }
+
+    .botonesGrid {
+        margin-left: 430px;
+    }
+}
+
+@media (min-width: 720px) {
+    .botonesReportes {
+        margin-left: 380px;
+    }
+
+    .botonesGrid {
+        margin-left: 480px;
+    }
+}
+
+@media (min-width: 730px) {
+    .botonesReportes {
+        margin-left: 390px;
+    }
+
+    .botonesGrid {
+        /*margin-left: 540px;*/
+        margin-left: 490px;
+    }
+}
+
+@media (min-width: 760px) {
+    .botonesReportes {
+        margin-left: 440px;
+    }
+}
+
+@media (max-width: 768px) and (min-width: 761px) {
+    .botonesReportes {
+        margin-left: 440px;
+    }
+
+    .botonesGrid {
+        margin-left: 540px;
+    }
+}
+
+@media (min-width: 812px) {
+    .botonesReportes {
+        margin-left: 440px;
+    }
+
+    .botonesGrid {
+        margin-left: 540px;
+    }
+}
+
+@media (min-width: 820px) {
+    .botonesReportes {
+        margin-left: 440px;
+    }
+
+    .botonesGrid {
+        margin-left: 540px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .botonesReportes {
+        margin-left: 660px;
+    }
+
+    .botonesGrid {
+        margin-left: 760px;
+    }
+}
+
+/*@media (min-width: 660px) {
+    .botonesReportes {
+        margin-left: 400px;
+    }
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

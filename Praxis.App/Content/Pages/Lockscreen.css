@@ -1,0 +1,9 @@
+﻿@media (max-width: 823px) {
+    .lock-word .first-word {
+        display: none;
+    }
+
+    .lock-word{
+        display:none;
+    }
+}

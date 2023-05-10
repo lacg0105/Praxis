@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[CatRol] (
+    [IdRol]  INT           NOT NULL,
+    [Nombre] NVARCHAR (50) NULL,
+    CONSTRAINT [PK__CatRol__3214EC07BEA58651] PRIMARY KEY CLUSTERED ([IdRol] ASC)
+);
+

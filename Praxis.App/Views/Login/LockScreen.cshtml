@@ -1,0 +1,80 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PRAXIS | Lockscreen</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="~/Content/animate.css" rel="stylesheet">
+    <link href="~/Content/style.css" rel="stylesheet">
+    @Styles.Render("~/plugins/sweetAlertStyles")
+    @Styles.Render("~/Content/plugins/Kendo/KendoUi")
+    <link href="~/Content/Pages/Lockscreen.css" rel="stylesheet" />
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="lock-word animated fadeInDown">
+        <span class="first-word">PRAXIS</span><span>PRAXIS</span>
+    </div>
+    <div class="middle-box text-center lockscreen animated fadeInDown">
+        <div>
+            <div class="m-b-md">
+                <img alt="image" class="img-circle circle-border" id="imagenUsuario" src="">
+            </div>
+            <h3 id="Nombre"></h3>
+            <p id="Curp"></p>
+            <p id="NombreRol">Médico</p>
+            <div id="CedulaProfesional" style="display:none;">
+                <p>Cédula Profesional:</p>
+                <p id="Cedula"></p>
+            </div>
+            <form class="m-t" role="form" id="frmLogin2Form" data-role="validator" novalidate="novalidate">
+                <div class="FormsLogin">
+                    <div class="sk-spinner sk-spinner-wave">
+                        <div class="sk-rect1"></div>
+                        <div class="sk-rect2"></div>
+                        <div class="sk-rect3"></div>
+                        <div class="sk-rect4"></div>
+                        <div class="sk-rect5"></div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input id="txtPassword" type="password" class="form-control" placeholder="Contraseña" required="required" maxlength="15" name="PwdStr" data-required-msg="Ingrese la contraseña">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="validator-msg"><span class="k-invalid-msg" data-for="PwdStr"></span></div>
+                    <div class="form-group">
+                        <button id="btnIngresar" type="submit" class="btn btn-primary block full-width">Contraseña</button>
+                    </div>
+                    <div class="form-group">
+                        <button id="btnRegresar" type="button" class="btn btn-info block full-width">Regresar</button>
+                    </div>
+
+                    <a id="lnkOlvidoContra" href="#"><small>¿Olvidó su contraseña?</small></a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/plugins/Kendo")
+    @Scripts.Render("~/plugins/sweetAlert")
+
+    <script src="~/Scripts/Login/LockScreen.js"></script>
+    <input type="hidden" id="urlRedirect" value="@Url.Action("Index","Home")" />
+    <input type="hidden" id="urlRedirectLogin" value="@Url.Action("Login","Login")" />
+
+</body>
+
+</html>

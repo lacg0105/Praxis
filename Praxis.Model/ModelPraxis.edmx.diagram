@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="efc8419660084ccea40e0dbe837b4a09" Name="Diagram1">
+        <EntityTypeShape EntityType="BDPraxisModel.CatUsuario" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDPraxisModel.FolioClaveAcceso" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BDPraxisModel.CatCorreo" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="BDPraxisModel.Parametro" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BDPraxisModel.BitacoraClaveAcceso" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="BDPraxisModel.BitacoraNavegacion" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="BDPraxisModel.CatArea" Width="1.5" PointX="0.75" PointY="14.875" />
+        <EntityTypeShape EntityType="BDPraxisModel.CatEstatus_Usuario" Width="1.5" PointX="0.75" PointY="12.5" />
+        <EntityTypeShape EntityType="BDPraxisModel.CatRol" Width="1.5" PointX="0.75" PointY="10.125" />
+        <AssociationConnector Association="BDPraxisModel.FK__CatUsuario__IdArea__25869641" />
+        <AssociationConnector Association="BDPraxisModel.FK__CatUsuario__IdEstatus__286302EC" />
+        <AssociationConnector Association="BDPraxisModel.FK__CatUsuario__IdRol__276EDEB3" />
+        <EntityTypeShape EntityType="BDPraxisModel.CatInstitucion" Width="1.5" PointX="7.375" PointY="0.875" />
+        <EntityTypeShape EntityType="BDPraxisModel.CatSexo" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="BDPraxisModel.CatTipoInformacion" Width="1.5" PointX="7.375" PointY="7.75" />
+        <AssociationConnector Association="BDPraxisModel.FK_CatUsuario_CatInstitucion" />
+        <EntityTypeShape EntityType="BDPraxisModel.CatTipoInstitucion" Width="1.5" PointX="5.125" PointY="11.75" />
+        <EntityTypeShape EntityType="BDPraxisModel.CatTipoSangre" Width="1.5" PointX="7.375" PointY="14.25" />
+        <EntityTypeShape EntityType="BDPraxisModel.HistoriaClinica" Width="1.5" PointX="9.625" PointY="0.75" />
+        <AssociationConnector Association="BDPraxisModel.FK__CatInstit__IdTip__1CF15040" />
+        <AssociationConnector Association="BDPraxisModel.FK_HistoriaClinica_CatSexo" />
+        <AssociationConnector Association="BDPraxisModel.FK_HistoriaClinica_CatTipoSangre" />
+        <AssociationConnector Association="BDPraxisModel.FK_HistoriaClinica_CatUsuario" />
+        <EntityTypeShape EntityType="BDPraxisModel.ModuloxRol" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BDPraxisModel.ModuloxUsuario" Width="1.5" PointX="12.375" PointY="3.75" />
+        <EntityTypeShape EntityType="BDPraxisModel.CatReligion" Width="1.5" PointX="3.375" PointY="8.875" />
+        <AssociationConnector Association="BDPraxisModel.FK_HistoriaClinica_CatReligion" />
+        <EntityTypeShape EntityType="BDPraxisModel.HistoriaClaveAcceso" Width="1.5" PointX="12.375" PointY="6.75" />
+        <EntityTypeShape EntityType="BDPraxisModel.PerfilUsuario" Width="1.5" PointX="3" PointY="14.375" />
+        <AssociationConnector Association="BDPraxisModel.FK_PerfilUsuario_CatUsuario" />
+        <EntityTypeShape EntityType="BDPraxisModel.CatEscolaridad" Width="1.5" PointX="12.375" PointY="9.875" />
+        <AssociationConnector Association="BDPraxisModel.FK_HistoriaClinica_CatEscolaridad" />
+        <EntityTypeShape EntityType="BDPraxisModel.CatEstadoCivil" Width="1.5" PointX="12.375" PointY="12.875" />
+        <AssociationConnector Association="BDPraxisModel.FK_HistoriaClinica_CatEstadoCivil" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,12 @@
+﻿.formWizard{
+    margin-left:0px !important;
+    margin-right:0px !important;
+}
+
+.control-label, .form-horizontal {
+    text-align: left !important;
+}
+
+.panel-body {
+    background: #eee;
+}

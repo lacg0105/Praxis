@@ -1,0 +1,77 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRAXIS | Recuperación de contraseña</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/animate.css" rel="stylesheet">
+    <link href="~/Content/style.css" rel="stylesheet">
+    <link rel="icon" href="~/favicon.ico">
+    <!-- Add jQuery Style direct - used for jQGrid plugin -->
+    <link href="@Url.Content("~/Scripts/plugins/jquery-ui/jquery-ui.min.css")" rel="stylesheet" type="text/css" />
+    @Styles.Render("~/plugins/sweetAlertStyles")
+    @Styles.Render("~/Content/plugins/Kendo/KendoUi")
+    @Styles.Render("~/plugins/toastrStyles")
+    
+    <link href="~/Content/Pages/LoginTemp.css" rel="stylesheet" />
+</head>
+<body class="gray-bg loginTemp">
+    <div class="middle-box text-center loginscreen  animated fadeInDown">
+        <div class="ibox-content" style="background-color:white">
+            <div class="sk-spinner sk-spinner-wave">
+                <div class="sk-rect1"></div>
+                <div class="sk-rect2"></div>
+                <div class="sk-rect3"></div>
+                <div class="sk-rect4"></div>
+                <div class="sk-rect5"></div>
+            </div>
+            <div>
+                <img class="img-responsive logoPraxis" src="~/Content/Img/Logo.png" />
+            </div>
+            <p style="color:#26225A; font-weight:bold; ">Recuperación de contraseña</p>
+            <p class="m-t dvFolio" id="dvFolioDesc">  Primero ingrese el folio que se le envió a su correo  </p>
+            <form class="m-t" role="form" id="frmLoginForm" data-role="validator" novalidate="novalidate">
+                <div class="form-group dvFolio">
+                    <input type="text" class="form-control" placeholder="Folio" required="required" value="@ViewBag.Folio" readonly="readonly" name="Folio">
+                    <span class="k-invalid-msg" data-for="Folio"></span>
+                </div>
+                <hr class="dvFolio" />
+                <div class="form-group">
+                    <p style="color:#26225A; font-weight:bold; " class="dvFolio">Crear una nueva contraseña</p>
+                    <p class="m-t">  Para continuar con la recuperación debe crear una nueva contraseña  </p>
+                </div>
+                <div class="form-group">
+                    <input id="txtPwd" placeholder="Escriba la contraseña" class="form-control" type="password" required="required" maxlength="15"
+                           name="PwdStr" pattern="^(?=.*[0-9])(?=.*[+!&#64;#$&*])(?![a-z]*$)(?=.*[A-Z])(?!\d*$)(?!\p{P}*$)(?![^a-zA-Z\d\p{P}]*$).{8,}$"
+                           validationmessage="La contraseña debe contener mayúsculas, minúsculas, números, al menos 1 carácter especial [+!&#64;#$&*] y longitud superior a 8 caracteres">
+                    <div class="validator-msg"><span class="k-invalid-msg" data-for="PwdStr"></span></div>
+                </div>
+                <div class="form-group">
+                    <input id="txtPwdConfirm" placeholder="Confirme la contraseña" class="form-control" type="password" required="required" maxlength="15"
+                           name="PwdConfirm" pattern="^(?=.*[0-9])(?=.*[+!&#64;#$&*])(?![a-z]*$)(?=.*[A-Z])(?!\d*$)(?!\p{P}*$)(?![^a-zA-Z\d\p{P}]*$).{8,}$"
+                           validationmessage="La contraseña debe contener mayúsculas, minúsculas, números, al menos 1 carácter especial [+!&#64;#$&*] y longitud superior a 8 caracteres"
+                           data-required-msg="Debe confirmar su contraseña"
+                           data-matches="#txtPwd" data-matches-msg="Las contraseñas no coinciden">
+                    <div class="validator-msg"><span class="k-invalid-msg" data-for="PwdConfirm"></span></div>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b" id="btnGuardar">Guardar cambios</button>
+
+                <input type="hidden" id="hdnIdUser" value="@ViewBag.IdUser" name="IdUsuario" />
+            </form>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/plugins/Kendo")
+    @Scripts.Render("~/plugins/sweetAlert")
+    @Scripts.Render("~/plugins/toastr")
+
+    <script src="~/Scripts/Login/LoginTemp.js"></script>
+    <input type="hidden" id="urlRedirect" value="@Url.Action("Login","Login")" />
+</body>
+</html>

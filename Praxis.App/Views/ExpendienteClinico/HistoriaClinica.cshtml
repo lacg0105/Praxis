@@ -1,0 +1,345 @@
+﻿@{
+    ViewBag.Title = "Historia Clínica";
+}
+
+<div class="wrapper wrapper-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>Historia Clínica</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <h2>
+                            Paciente: @ViewBag.NombreUsuario
+                        </h2>
+                        <form id="form" action="#" class="wizard-big">
+                                <h1>Ficha de identificación</h1>
+                                <fieldset>
+                                    <h2>Ficha de identificación</h2>
+                                    <div class="row">
+                                        @*<div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label>Nombre *</label>
+                                                <input id="txtNombre" name="Nombre" type="text" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Sexo *</label>
+                                                <select id="selSexo" name="IdSexo" class="form-control required" style="width:100%"></select>
+                                            </div>
+                                        </div>*@
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label>Fecha de nacimiento *</label>
+                                                <input type="text" id="dpFechaNacimiento" name="FechaNacimiento" class="form-control fechas" style="width:100%">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Edad *</label>
+                                                <input id="txtEdad" name="Edad" type="text" disabled="" class="form-control required">
+                                            </div>
+                                        </div>
+                                        @*<div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label>Lugar de nacimiento</label>
+                                                <input id="txtLugarNacimiento" name="LugarNacimiento" type="text" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Lugar de residencia</label>
+                                                <input id="txtLugarResidencia" name="LugarResidencia" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label>Escolaridad</label>
+                                                <input id="txtEscolaridad" name="Escolaridad" type="text" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Ocupación</label>
+                                                <input id="txtOcupacion" name="Ocupacion" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label>Religion *</label>
+                                                <select id="selReligion" name="IdReligion" class="form-control required" style="width:100%"></select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Fecha de actualización</label>
+                                                <input type="text" id="dpFechaActualizacion" name="FechaActualizacion" class="form-control fechas" style="width:100%">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label>Número de seguridad social</label>
+                                                <input id="txtNSS" name="NumeroSeguridadSocial" type="text" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Curp *</label>
+                                                <input id="txtCurp" name="Curp" type="text" class="form-control required" disabled="" value="@ViewBag.Curp">
+                                            </div>
+                                        </div>*@
+                                    </div>
+                                </fieldset>
+                                <h1>Antecedentes heredo familiares</h1>
+                                <fieldset>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Abuelo paterno</label>
+                                            <input id="txtAbueloPaterno" name="AbueloPaterno" type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Abuela paterna</label>
+                                            <input id="txtAbuelaPaterna" name="AbuelaPaterno" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Abuelo materno</label>
+                                            <input id="txtAbueloMaterno" name="AbueloMaterno" type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Abuela materna</label>
+                                            <input id="txtAbuelaMaterna" name="AbuelaMaterno" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Padre</label>
+                                            <input id="txtPadre" name="Padre" type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Madre</label>
+                                            <input id="txtMadre" name="Madre" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Hermanos</label>
+                                            <input id="txtHermanos" name="Hermano" type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Hijos</label>
+                                            <input id="txtHijos" name="Hijo" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <h1>Antecedentes personales no patológicos</h1>
+                                <fieldset>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Vivienda</label>
+                                            <input id="txtVivienda" name="Vivienda" type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Zoonosis</label>
+                                            <input id="txtZoonosis" name="Zoonosis" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Hábitos alimenticios y actividad física</label>
+                                            <input id="txtHabitos" name="Habitos" type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Ingesta de líquidos y uresis diaria</label>
+                                            <input id="txtIngesta" name="IngestaLiquido" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Hábitos de higiene</label>
+                                            <input id="txtHabitos" name="Higiene" type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Inmunizaciones</label>
+                                            <input id="txtInmunizacion" name="Inmunizacion" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Tipo de sangre *</label>
+                                            <select id="selTipoSangre" name="IdTipoSangre" class="form-control required" style="width:100%"></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Inmunizaciones</label>
+                                            <input id="txtInmunizacion" name="Inmunizacion" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Lengua indígena</label>
+                                            <input id="txtLenguaIndigena" name="LenguaIndigena" type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Combe</label>
+                                            <input id="txtCombe" name="Combe" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Viajes recientes *</label>
+                                            <input id="txtViajesRecientes" name="ViajesRecientes" type="text" class="form-control required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Exposición a biomasa *</label>
+                                            <input id="txtExposicion" name="ExposicionBiomasa" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <h1>Antecedentes personales patológicos</h1>
+                                <fieldset>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Crónico degenerativos *</label>
+                                            <input id="txtCronico" name="CronicoDegenerativo" type="text" class="form-control required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Quirúrgicos *</label>
+                                            <input id="txtQuirurgico" name="Quirurjicos" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Hospitalizaciones previas *</label>
+                                            <input id="txtHospitalizaciones" name="Hospitalizacion" type="text" class="form-control required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Infectocontagiosos (incluyendo VIH, HEPATITIS) *</label>
+                                            <input id="txtInfectocontagiosos" name="Infectocontagioso" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Traumáticos *</label>
+                                            <input id="txtTraumaticos" name="Traumatico" type="text" class="form-control required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Toxicomanías *</label>
+                                            <input id="txtToxicomanias" name="Toxicomania" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Transfusionales *</label>
+                                            <input id="txtTransfusionales" name="Transfusional" type="text" class="form-control required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Alergias (etiología y presentación clínica) *</label>
+                                            <input id="txtAlergias" name="Alergia" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Consumo de tabaco *</label>
+                                            <input id="txtConsumoTabaco" name="ConsumoTabaco" type="text" class="form-control required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Consumo de alcohol *</label>
+                                            <input id="txtConsumoAlcohol" name="ConsumoAlcohol" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <h1>Gineco obstétricos / Andrológicos</h1>
+                                <fieldset>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Inicio de vida sexual activa</label>
+                                            <input id="txtVidaSexual" name="InicioVidaSexual" type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Número de parejas sexuales</label>
+                                            <input id="txtNumeroParejas" name="NumeroParejaSexual" type="number" class="form-control numero" style="width:100%;">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Parejas (hombres y / o mujeres)</label>
+                                            <input id="txtParejas" name="Parejas" type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Cantidad de hijos</label>
+                                            <input id="txtCantidadHijos" name="CantidadHijo" type="number" class="form-control numero" style="width:100%;">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Métodos de planificación familiar *</label>
+                                            <input id="txtMetodos" name="MetodoPlanificacion" type="text" class="form-control required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Infecciones de transmisión sexual *</label>
+                                            <input id="txtInfecciones" name="InfeccionSexual" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Menarca</label>
+                                            <input id="txtMenarca" name="Menarca" type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Telarca</label>
+                                            <input id="txtTelarca" name="Telarca" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Gestas *</label>
+                                            <input id="txtGestas" name="Gesta" type="text" class="form-control required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Partos (a las cuantas semanas) *</label>
+                                            <input id="txtPartos" name="Parto" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Abortos (a las cuantas semanas, espontaneo o inducido) *</label>
+                                            <input id="txtAbortos" name="Aborto" type="text" class="form-control required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Cesáreas (a las cuantas semanas, motivo) *</label>
+                                            <input id="txtCesarea" name="Cesarea" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Papanicolau (cada cuanto, cuándo fue el último y resultado) *</label>
+                                            <input id="txtPapanicolau" name="Papanicolau" type="text" class="form-control required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Mastografía (cada cuanto, cuándo fue la última y resultado) *</label>
+                                            <input id="txtMastografia" name="Mastografia" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="hdnUrlSexo" value="@Url.Action("ObtenerSexo", "Catalogos")" />
+<input type="hidden" id="hdnUrlReligion" value="@Url.Action("ObtenerReligion", "Catalogos")" />
+<input type="hidden" id="hdnUrlTipoSangre" value="@Url.Action("ObtenerTipoSangre", "Catalogos")" />
+
+@section Styles {
+    @Styles.Render("~/plugins/wizardStepsStyles")
+    @Styles.Render("~/plugins/select2Styles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/select2")
+    @Scripts.Render("~/plugins/dataPicker")
+    <script src="~/Scripts/ExpendienteClinico/HistoriaClinica.js"></script>
+
+}

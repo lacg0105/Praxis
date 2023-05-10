@@ -1,0 +1,1389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BDPraxisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FolioClaveAcceso">
+          <Key>
+            <PropertyRef Name="IdFolio" />
+          </Key>
+          <Property Name="IdFolio" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdUsuario" Type="uniqueidentifier" />
+          <Property Name="Folio" Type="nvarchar" MaxLength="300" />
+          <Property Name="FechaExpiracion" Type="datetime" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="HistoriaClaveAcceso">
+          <Key>
+            <PropertyRef Name="IdHistoria" />
+          </Key>
+          <Property Name="IdHistoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="uniqueidentifier" />
+          <Property Name="Pwd" Type="varbinary(max)" />
+          <Property Name="FechaCreacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ModuloxRol">
+          <Key>
+            <PropertyRef Name="IdPantalla" />
+            <PropertyRef Name="IdInstitucion" />
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdPantalla" Type="int" Nullable="false" />
+          <Property Name="IdInstitucion" Type="int" Nullable="false" />
+          <Property Name="IdRol" Type="int" Nullable="false" />
+          <Property Name="Aprobar" Type="bit" Nullable="false" />
+          <Property Name="Escritura" Type="bit" Nullable="false" />
+          <Property Name="Lectura" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ModuloxUsuario">
+          <Key>
+            <PropertyRef Name="IdPantalla" />
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdPantalla" Type="int" Nullable="false" />
+          <Property Name="IdUsuario" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Aprobar" Type="bit" Nullable="false" />
+          <Property Name="Escritura" Type="bit" Nullable="false" />
+          <Property Name="Lectura" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Parametro">
+          <Key>
+            <PropertyRef Name="IdParametro" />
+          </Key>
+          <Property Name="IdParametro" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="300" />
+          <Property Name="Valor" Type="nvarchar" MaxLength="300" />
+          <Property Name="Seccion" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="CatArea">
+          <Key>
+            <PropertyRef Name="IdArea" />
+          </Key>
+          <Property Name="IdArea" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CatCorreo">
+          <Key>
+            <PropertyRef Name="IdCorreo" />
+          </Key>
+          <Property Name="IdCorreo" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="300" />
+          <Property Name="Asunto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Para" Type="nvarchar" MaxLength="800" />
+          <Property Name="BCC" Type="nvarchar" MaxLength="800" />
+          <Property Name="BCCO" Type="nvarchar" MaxLength="800" />
+          <Property Name="ContenidoHTML" Type="nvarchar(max)" />
+          <Property Name="Seccion" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="CatEscolaridad">
+          <Key>
+            <PropertyRef Name="IdEscolaridad" />
+          </Key>
+          <Property Name="IdEscolaridad" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatEstadoCivil">
+          <Key>
+            <PropertyRef Name="IdEstadoCivil" />
+          </Key>
+          <Property Name="IdEstadoCivil" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatEstatus_Usuario">
+          <Key>
+            <PropertyRef Name="IdEstatusUsuario" />
+          </Key>
+          <Property Name="IdEstatusUsuario" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CatInstitucion">
+          <Key>
+            <PropertyRef Name="IdInstitucion" />
+          </Key>
+          <Property Name="IdInstitucion" Type="int" Nullable="false" />
+          <Property Name="IdTipoInstitucion" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NombreLargo" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Carpeta" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CatReligion">
+          <Key>
+            <PropertyRef Name="IdReligion" />
+          </Key>
+          <Property Name="IdReligion" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatRol">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdRol" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CatSexo">
+          <Key>
+            <PropertyRef Name="IdSexo" />
+          </Key>
+          <Property Name="IdSexo" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatTipoInformacion">
+          <Key>
+            <PropertyRef Name="IdTipoInformacion" />
+          </Key>
+          <Property Name="IdTipoInformacion" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatTipoInstitucion">
+          <Key>
+            <PropertyRef Name="IdTipoInstitucion" />
+          </Key>
+          <Property Name="IdTipoInstitucion" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatTipoSangre">
+          <Key>
+            <PropertyRef Name="IdTipoSangre" />
+          </Key>
+          <Property Name="IdTipoSangre" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatUsuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdInstitucion" Type="int" Nullable="false" />
+          <Property Name="IdArea" Type="int" Nullable="false" />
+          <Property Name="IdRol" Type="int" Nullable="false" />
+          <Property Name="IdEstatusUsuario" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Pwd" Type="varbinary(max)" />
+          <Property Name="Correo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Curp" Type="nvarchar" MaxLength="100" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="FechaPwd" Type="datetime" Nullable="false" />
+          <Property Name="FechaAcceso" Type="datetime" Nullable="false" />
+          <Property Name="NombreImagen" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="HistoriaClinica">
+          <Key>
+            <PropertyRef Name="IdHistoriaClinica" />
+          </Key>
+          <Property Name="IdHistoriaClinica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdSexo" Type="int" Nullable="false" />
+          <Property Name="IdEstadoCivil" Type="int" Nullable="false" />
+          <Property Name="IdReligion" Type="int" Nullable="false" />
+          <Property Name="IdTipoSangre" Type="int" Nullable="false" />
+          <Property Name="IdEscolaridad" Type="int" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
+          <Property Name="FechaActualizacion" Type="datetime" Nullable="false" />
+          <Property Name="LugarNacimiento" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="LugarResidencia" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Ocupacion" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NumeroSeguridadSocial" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PolizaSeguro" Type="nvarchar" MaxLength="50" />
+          <Property Name="AbueloPaterno" Type="nvarchar" MaxLength="300" />
+          <Property Name="AbuelaPaterno" Type="nvarchar" MaxLength="300" />
+          <Property Name="AbueloMaterno" Type="nvarchar" MaxLength="300" />
+          <Property Name="AbuelaMaterno" Type="nvarchar" MaxLength="300" />
+          <Property Name="Padre" Type="nvarchar" MaxLength="300" />
+          <Property Name="Madre" Type="nvarchar" MaxLength="300" />
+          <Property Name="Hermano" Type="nvarchar" MaxLength="300" />
+          <Property Name="Hijo" Type="nvarchar" MaxLength="300" />
+          <Property Name="Vivienda" Type="nvarchar" MaxLength="500" />
+          <Property Name="Zoonosis" Type="nvarchar" MaxLength="300" />
+          <Property Name="Habitos" Type="nvarchar" MaxLength="500" />
+          <Property Name="IngestaLiquido" Type="nvarchar" MaxLength="300" />
+          <Property Name="Higiene" Type="nvarchar" MaxLength="300" />
+          <Property Name="Inmunizacion" Type="nvarchar" MaxLength="300" />
+          <Property Name="LenguaIndigena" Type="nvarchar" MaxLength="50" />
+          <Property Name="Combe" Type="nvarchar" MaxLength="300" />
+          <Property Name="ViajeReciente" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="ExposicionBiomasa" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="CronicoDegenerativo" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Quirurjicos" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Hospitalizacion" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Infectocontagioso" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Traumatico" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Toxicomania" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Transfusional" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Alergia" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ConsumoTabaco" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="ConsumoAlcohol" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="InicioVidaSexual" Type="nvarchar" MaxLength="300" />
+          <Property Name="NumeroParejaSexual" Type="nvarchar" MaxLength="300" />
+          <Property Name="Parejas" Type="nvarchar" MaxLength="300" />
+          <Property Name="CantidadHijo" Type="nvarchar" MaxLength="300" />
+          <Property Name="MetodoPlanificacion" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="InfeccionSexual" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Menarca" Type="nvarchar" MaxLength="300" />
+          <Property Name="Telarca" Type="nvarchar" MaxLength="300" />
+          <Property Name="Gesta" Type="nvarchar" MaxLength="300" />
+          <Property Name="Parto" Type="nvarchar" MaxLength="300" />
+          <Property Name="Aborto" Type="nvarchar" MaxLength="300" />
+          <Property Name="Cesarea" Type="nvarchar" MaxLength="300" />
+          <Property Name="Papanicolau" Type="nvarchar" MaxLength="300" />
+          <Property Name="Mastografia" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="PerfilUsuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="date" Nullable="false" />
+          <Property Name="Rfc" Type="nvarchar" MaxLength="30" />
+          <Property Name="Profesion" Type="nvarchar" MaxLength="300" />
+          <Property Name="Cedula" Type="nvarchar" MaxLength="30" />
+          <Property Name="Consultorio" Type="nvarchar" MaxLength="300" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="300" />
+          <Property Name="AlcaldiaMunicipio" Type="nvarchar" MaxLength="300" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="300" />
+          <Property Name="CodigoPostal" Type="nvarchar" MaxLength="30" />
+          <Property Name="CostoConsulta" Type="float" />
+          <Property Name="ConsultaDomicilio" Type="bit" />
+          <Property Name="ConsultaVideollamada" Type="bit" />
+        </EntityType>
+        <EntityType Name="BitacoraClaveAcceso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdUsuarioConsulta" Type="nvarchar" MaxLength="100" />
+          <Property Name="IdEvento" Type="int" />
+          <Property Name="FechaRegistro" Type="datetime" />
+          <Property Name="Campo" Type="nvarchar" MaxLength="255" />
+          <Property Name="ValorActual" Type="nvarchar" MaxLength="255" />
+          <Property Name="ValorNuevo" Type="nvarchar" MaxLength="255" />
+          <Property Name="Acuse" Type="nvarchar(max)" />
+          <Property Name="Host" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDPraxis.Seguridad.BitacoraNavegacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="BitacoraNavegacion">
+          <Key>
+            <PropertyRef Name="IdBitacora" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="IdPantalla" />
+            <PropertyRef Name="IdEvento" />
+            <PropertyRef Name="FechaRegistro" />
+          </Key>
+          <Property Name="IdBitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdPantalla" Type="int" Nullable="false" />
+          <Property Name="IdEvento" Type="int" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="IdRegistro" Type="nvarchar" MaxLength="100" />
+          <Property Name="Campo" Type="nvarchar" MaxLength="100" />
+          <Property Name="ValorActual" Type="nvarchar(max)" />
+          <Property Name="ValorNuevo" Type="nvarchar(max)" />
+          <Property Name="Parametro" Type="nvarchar" MaxLength="100" />
+          <Property Name="Acuse" Type="varbinary(max)" />
+          <Property Name="Folio" Type="uniqueidentifier" />
+          <Property Name="Host" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__CatInstit__IdTip__1CF15040">
+          <End Role="CatTipoInstitucion" Type="Self.CatTipoInstitucion" Multiplicity="1" />
+          <End Role="CatInstitucion" Type="Self.CatInstitucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatTipoInstitucion">
+              <PropertyRef Name="IdTipoInstitucion" />
+            </Principal>
+            <Dependent Role="CatInstitucion">
+              <PropertyRef Name="IdTipoInstitucion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CatUsuario__IdArea__25869641">
+          <End Role="CatArea" Type="Self.CatArea" Multiplicity="1" />
+          <End Role="CatUsuario" Type="Self.CatUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatArea">
+              <PropertyRef Name="IdArea" />
+            </Principal>
+            <Dependent Role="CatUsuario">
+              <PropertyRef Name="IdArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CatUsuario__IdEstatus__286302EC">
+          <End Role="CatEstatus_Usuario" Type="Self.CatEstatus_Usuario" Multiplicity="1" />
+          <End Role="CatUsuario" Type="Self.CatUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatEstatus_Usuario">
+              <PropertyRef Name="IdEstatusUsuario" />
+            </Principal>
+            <Dependent Role="CatUsuario">
+              <PropertyRef Name="IdEstatusUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CatUsuario__IdRol__276EDEB3">
+          <End Role="CatRol" Type="Self.CatRol" Multiplicity="1" />
+          <End Role="CatUsuario" Type="Self.CatUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatRol">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="CatUsuario">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatUsuario_CatInstitucion">
+          <End Role="CatInstitucion" Type="Self.CatInstitucion" Multiplicity="1" />
+          <End Role="CatUsuario" Type="Self.CatUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatInstitucion">
+              <PropertyRef Name="IdInstitucion" />
+            </Principal>
+            <Dependent Role="CatUsuario">
+              <PropertyRef Name="IdInstitucion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoriaClinica_CatEscolaridad">
+          <End Role="CatEscolaridad" Type="Self.CatEscolaridad" Multiplicity="1" />
+          <End Role="HistoriaClinica" Type="Self.HistoriaClinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatEscolaridad">
+              <PropertyRef Name="IdEscolaridad" />
+            </Principal>
+            <Dependent Role="HistoriaClinica">
+              <PropertyRef Name="IdEscolaridad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoriaClinica_CatEstadoCivil">
+          <End Role="CatEstadoCivil" Type="Self.CatEstadoCivil" Multiplicity="1" />
+          <End Role="HistoriaClinica" Type="Self.HistoriaClinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatEstadoCivil">
+              <PropertyRef Name="IdEstadoCivil" />
+            </Principal>
+            <Dependent Role="HistoriaClinica">
+              <PropertyRef Name="IdEstadoCivil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoriaClinica_CatReligion">
+          <End Role="CatReligion" Type="Self.CatReligion" Multiplicity="1" />
+          <End Role="HistoriaClinica" Type="Self.HistoriaClinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatReligion">
+              <PropertyRef Name="IdReligion" />
+            </Principal>
+            <Dependent Role="HistoriaClinica">
+              <PropertyRef Name="IdReligion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoriaClinica_CatSexo">
+          <End Role="CatSexo" Type="Self.CatSexo" Multiplicity="1" />
+          <End Role="HistoriaClinica" Type="Self.HistoriaClinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatSexo">
+              <PropertyRef Name="IdSexo" />
+            </Principal>
+            <Dependent Role="HistoriaClinica">
+              <PropertyRef Name="IdSexo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoriaClinica_CatTipoSangre">
+          <End Role="CatTipoSangre" Type="Self.CatTipoSangre" Multiplicity="1" />
+          <End Role="HistoriaClinica" Type="Self.HistoriaClinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatTipoSangre">
+              <PropertyRef Name="IdTipoSangre" />
+            </Principal>
+            <Dependent Role="HistoriaClinica">
+              <PropertyRef Name="IdTipoSangre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoriaClinica_CatUsuario">
+          <End Role="CatUsuario" Type="Self.CatUsuario" Multiplicity="1" />
+          <End Role="HistoriaClinica" Type="Self.HistoriaClinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatUsuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="HistoriaClinica">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PerfilUsuario_CatUsuario">
+          <End Role="CatUsuario" Type="Self.CatUsuario" Multiplicity="1" />
+          <End Role="PerfilUsuario" Type="Self.PerfilUsuario" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CatUsuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="PerfilUsuario">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="sp_ModuloAcceso_Modulos_ConsultaxUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdUsuario" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="BDPraxisModelStoreContainer">
+          <EntitySet Name="FolioClaveAcceso" EntityType="Self.FolioClaveAcceso" Schema="Admin" store:Type="Tables" />
+          <EntitySet Name="HistoriaClaveAcceso" EntityType="Self.HistoriaClaveAcceso" Schema="Admin" store:Type="Tables" />
+          <EntitySet Name="ModuloxRol" EntityType="Self.ModuloxRol" Schema="Admin" store:Type="Tables" />
+          <EntitySet Name="ModuloxUsuario" EntityType="Self.ModuloxUsuario" Schema="Admin" store:Type="Tables" />
+          <EntitySet Name="Parametro" EntityType="Self.Parametro" Schema="Admin" store:Type="Tables" />
+          <EntitySet Name="CatArea" EntityType="Self.CatArea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatCorreo" EntityType="Self.CatCorreo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatEscolaridad" EntityType="Self.CatEscolaridad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatEstadoCivil" EntityType="Self.CatEstadoCivil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatEstatus_Usuario" EntityType="Self.CatEstatus_Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatInstitucion" EntityType="Self.CatInstitucion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatReligion" EntityType="Self.CatReligion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatRol" EntityType="Self.CatRol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatSexo" EntityType="Self.CatSexo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatTipoInformacion" EntityType="Self.CatTipoInformacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatTipoInstitucion" EntityType="Self.CatTipoInstitucion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatTipoSangre" EntityType="Self.CatTipoSangre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatUsuario" EntityType="Self.CatUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistoriaClinica" EntityType="Self.HistoriaClinica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PerfilUsuario" EntityType="Self.PerfilUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitacoraClaveAcceso" EntityType="Self.BitacoraClaveAcceso" Schema="Seguridad" store:Type="Tables" />
+          <EntitySet Name="BitacoraNavegacion" EntityType="Self.BitacoraNavegacion" store:Type="Tables" store:Schema="Seguridad">
+            <DefiningQuery>SELECT 
+    [BitacoraNavegacion].[IdBitacora] AS [IdBitacora], 
+    [BitacoraNavegacion].[IdUsuario] AS [IdUsuario], 
+    [BitacoraNavegacion].[IdPantalla] AS [IdPantalla], 
+    [BitacoraNavegacion].[IdEvento] AS [IdEvento], 
+    [BitacoraNavegacion].[FechaRegistro] AS [FechaRegistro], 
+    [BitacoraNavegacion].[IdRegistro] AS [IdRegistro], 
+    [BitacoraNavegacion].[Campo] AS [Campo], 
+    [BitacoraNavegacion].[ValorActual] AS [ValorActual], 
+    [BitacoraNavegacion].[ValorNuevo] AS [ValorNuevo], 
+    [BitacoraNavegacion].[Parametro] AS [Parametro], 
+    [BitacoraNavegacion].[Acuse] AS [Acuse], 
+    [BitacoraNavegacion].[Folio] AS [Folio], 
+    [BitacoraNavegacion].[Host] AS [Host]
+    FROM [Seguridad].[BitacoraNavegacion] AS [BitacoraNavegacion]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__CatInstit__IdTip__1CF15040" Association="Self.FK__CatInstit__IdTip__1CF15040">
+            <End Role="CatTipoInstitucion" EntitySet="CatTipoInstitucion" />
+            <End Role="CatInstitucion" EntitySet="CatInstitucion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CatUsuario__IdArea__25869641" Association="Self.FK__CatUsuario__IdArea__25869641">
+            <End Role="CatArea" EntitySet="CatArea" />
+            <End Role="CatUsuario" EntitySet="CatUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CatUsuario__IdEstatus__286302EC" Association="Self.FK__CatUsuario__IdEstatus__286302EC">
+            <End Role="CatEstatus_Usuario" EntitySet="CatEstatus_Usuario" />
+            <End Role="CatUsuario" EntitySet="CatUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CatUsuario__IdRol__276EDEB3" Association="Self.FK__CatUsuario__IdRol__276EDEB3">
+            <End Role="CatRol" EntitySet="CatRol" />
+            <End Role="CatUsuario" EntitySet="CatUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatUsuario_CatInstitucion" Association="Self.FK_CatUsuario_CatInstitucion">
+            <End Role="CatInstitucion" EntitySet="CatInstitucion" />
+            <End Role="CatUsuario" EntitySet="CatUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoriaClinica_CatEscolaridad" Association="Self.FK_HistoriaClinica_CatEscolaridad">
+            <End Role="CatEscolaridad" EntitySet="CatEscolaridad" />
+            <End Role="HistoriaClinica" EntitySet="HistoriaClinica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoriaClinica_CatEstadoCivil" Association="Self.FK_HistoriaClinica_CatEstadoCivil">
+            <End Role="CatEstadoCivil" EntitySet="CatEstadoCivil" />
+            <End Role="HistoriaClinica" EntitySet="HistoriaClinica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoriaClinica_CatReligion" Association="Self.FK_HistoriaClinica_CatReligion">
+            <End Role="CatReligion" EntitySet="CatReligion" />
+            <End Role="HistoriaClinica" EntitySet="HistoriaClinica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoriaClinica_CatSexo" Association="Self.FK_HistoriaClinica_CatSexo">
+            <End Role="CatSexo" EntitySet="CatSexo" />
+            <End Role="HistoriaClinica" EntitySet="HistoriaClinica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoriaClinica_CatTipoSangre" Association="Self.FK_HistoriaClinica_CatTipoSangre">
+            <End Role="CatTipoSangre" EntitySet="CatTipoSangre" />
+            <End Role="HistoriaClinica" EntitySet="HistoriaClinica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoriaClinica_CatUsuario" Association="Self.FK_HistoriaClinica_CatUsuario">
+            <End Role="CatUsuario" EntitySet="CatUsuario" />
+            <End Role="HistoriaClinica" EntitySet="HistoriaClinica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PerfilUsuario_CatUsuario" Association="Self.FK_PerfilUsuario_CatUsuario">
+            <End Role="CatUsuario" EntitySet="CatUsuario" />
+            <End Role="PerfilUsuario" EntitySet="PerfilUsuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDPraxisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CatUsuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Guid" Nullable="false" />
+          <Property Name="IdInstitucion" Type="Int32" Nullable="false" />
+          <Property Name="IdArea" Type="Int32" Nullable="false" />
+          <Property Name="IdRol" Type="Int32" Nullable="false" />
+          <Property Name="IdEstatusUsuario" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pwd" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Curp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaPwd" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaAcceso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NombreImagen" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CatArea" Relationship="BDPraxisModel.FK__CatUsuario__IdArea__25869641" FromRole="CatUsuario" ToRole="CatArea" />
+          <NavigationProperty Name="CatEstatus_Usuario" Relationship="BDPraxisModel.FK__CatUsuario__IdEstatus__286302EC" FromRole="CatUsuario" ToRole="CatEstatus_Usuario" />
+          <NavigationProperty Name="CatRol" Relationship="BDPraxisModel.FK__CatUsuario__IdRol__276EDEB3" FromRole="CatUsuario" ToRole="CatRol" />
+          <NavigationProperty Name="CatInstitucion" Relationship="BDPraxisModel.FK_CatUsuario_CatInstitucion" FromRole="CatUsuario" ToRole="CatInstitucion" />
+          <NavigationProperty Name="HistoriaClinica" Relationship="BDPraxisModel.FK_HistoriaClinica_CatUsuario" FromRole="CatUsuario" ToRole="HistoriaClinica" />
+          <NavigationProperty Name="PerfilUsuario" Relationship="BDPraxisModel.FK_PerfilUsuario_CatUsuario" FromRole="CatUsuario" ToRole="PerfilUsuario" />
+        </EntityType>
+        <EntityContainer Name="BDPRAXISEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CatUsuario" EntityType="Self.CatUsuario" />
+          <EntitySet Name="FolioClaveAcceso" EntityType="BDPraxisModel.FolioClaveAcceso" />
+          <EntitySet Name="CatCorreo" EntityType="BDPraxisModel.CatCorreo" />
+          <EntitySet Name="Parametro" EntityType="BDPraxisModel.Parametro" />
+          <FunctionImport Name="sp_ModuloAcceso_Modulos_ConsultaxUsuario" ReturnType="Collection(String)">
+          <Parameter Name="IdUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="BitacoraClaveAcceso" EntityType="BDPraxisModel.BitacoraClaveAcceso" />
+          <EntitySet Name="BitacoraNavegacion" EntityType="BDPraxisModel.BitacoraNavegacion" />
+          <EntitySet Name="CatArea" EntityType="BDPraxisModel.CatArea" />
+          <EntitySet Name="CatEstatus_Usuario" EntityType="BDPraxisModel.CatEstatus_Usuario" />
+          <EntitySet Name="CatRol" EntityType="BDPraxisModel.CatRol" />
+          <AssociationSet Name="FK__CatUsuario__IdArea__25869641" Association="BDPraxisModel.FK__CatUsuario__IdArea__25869641">
+            <End Role="CatArea" EntitySet="CatArea" />
+            <End Role="CatUsuario" EntitySet="CatUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CatUsuario__IdEstatus__286302EC" Association="BDPraxisModel.FK__CatUsuario__IdEstatus__286302EC">
+            <End Role="CatEstatus_Usuario" EntitySet="CatEstatus_Usuario" />
+            <End Role="CatUsuario" EntitySet="CatUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CatUsuario__IdRol__276EDEB3" Association="BDPraxisModel.FK__CatUsuario__IdRol__276EDEB3">
+            <End Role="CatRol" EntitySet="CatRol" />
+            <End Role="CatUsuario" EntitySet="CatUsuario" />
+          </AssociationSet>
+          <EntitySet Name="CatInstitucion" EntityType="BDPraxisModel.CatInstitucion" />
+          <EntitySet Name="CatSexo" EntityType="BDPraxisModel.CatSexo" />
+          <EntitySet Name="CatTipoInformacion" EntityType="BDPraxisModel.CatTipoInformacion" />
+          <AssociationSet Name="FK_CatUsuario_CatInstitucion" Association="BDPraxisModel.FK_CatUsuario_CatInstitucion">
+            <End Role="CatInstitucion" EntitySet="CatInstitucion" />
+            <End Role="CatUsuario" EntitySet="CatUsuario" />
+          </AssociationSet>
+          <EntitySet Name="CatTipoInstitucion" EntityType="BDPraxisModel.CatTipoInstitucion" />
+          <EntitySet Name="CatTipoSangre" EntityType="BDPraxisModel.CatTipoSangre" />
+          <EntitySet Name="HistoriaClinica" EntityType="BDPraxisModel.HistoriaClinica" />
+          <AssociationSet Name="FK__CatInstit__IdTip__1CF15040" Association="BDPraxisModel.FK__CatInstit__IdTip__1CF15040">
+            <End Role="CatTipoInstitucion" EntitySet="CatTipoInstitucion" />
+            <End Role="CatInstitucion" EntitySet="CatInstitucion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoriaClinica_CatSexo" Association="BDPraxisModel.FK_HistoriaClinica_CatSexo">
+            <End Role="CatSexo" EntitySet="CatSexo" />
+            <End Role="HistoriaClinica" EntitySet="HistoriaClinica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoriaClinica_CatTipoSangre" Association="BDPraxisModel.FK_HistoriaClinica_CatTipoSangre">
+            <End Role="CatTipoSangre" EntitySet="CatTipoSangre" />
+            <End Role="HistoriaClinica" EntitySet="HistoriaClinica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoriaClinica_CatUsuario" Association="BDPraxisModel.FK_HistoriaClinica_CatUsuario">
+            <End Role="CatUsuario" EntitySet="CatUsuario" />
+            <End Role="HistoriaClinica" EntitySet="HistoriaClinica" />
+          </AssociationSet>
+          <EntitySet Name="ModuloxRol" EntityType="BDPraxisModel.ModuloxRol" />
+          <EntitySet Name="ModuloxUsuario" EntityType="BDPraxisModel.ModuloxUsuario" />
+          <EntitySet Name="CatReligion" EntityType="BDPraxisModel.CatReligion" />
+          <AssociationSet Name="FK_HistoriaClinica_CatReligion" Association="BDPraxisModel.FK_HistoriaClinica_CatReligion">
+            <End Role="CatReligion" EntitySet="CatReligion" />
+            <End Role="HistoriaClinica" EntitySet="HistoriaClinica" />
+          </AssociationSet>
+          <EntitySet Name="HistoriaClaveAcceso" EntityType="BDPraxisModel.HistoriaClaveAcceso" />
+          <EntitySet Name="PerfilUsuario" EntityType="BDPraxisModel.PerfilUsuario" />
+          <AssociationSet Name="FK_PerfilUsuario_CatUsuario" Association="BDPraxisModel.FK_PerfilUsuario_CatUsuario">
+            <End Role="CatUsuario" EntitySet="CatUsuario" />
+            <End Role="PerfilUsuario" EntitySet="PerfilUsuario" />
+          </AssociationSet>
+          <EntitySet Name="CatEscolaridad" EntityType="BDPraxisModel.CatEscolaridad" />
+          <AssociationSet Name="FK_HistoriaClinica_CatEscolaridad" Association="BDPraxisModel.FK_HistoriaClinica_CatEscolaridad">
+            <End Role="CatEscolaridad" EntitySet="CatEscolaridad" />
+            <End Role="HistoriaClinica" EntitySet="HistoriaClinica" />
+          </AssociationSet>
+          <EntitySet Name="CatEstadoCivil" EntityType="BDPraxisModel.CatEstadoCivil" />
+          <AssociationSet Name="FK_HistoriaClinica_CatEstadoCivil" Association="BDPraxisModel.FK_HistoriaClinica_CatEstadoCivil">
+            <End Role="CatEstadoCivil" EntitySet="CatEstadoCivil" />
+            <End Role="HistoriaClinica" EntitySet="HistoriaClinica" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="FolioClaveAcceso">
+          <Key>
+            <PropertyRef Name="IdFolio" />
+          </Key>
+          <Property Name="IdFolio" Type="Guid" Nullable="false" />
+          <Property Name="IdUsuario" Type="Guid" />
+          <Property Name="Folio" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FechaExpiracion" Type="DateTime" Precision="3" />
+          <Property Name="Activo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CatCorreo">
+          <Key>
+            <PropertyRef Name="IdCorreo" />
+          </Key>
+          <Property Name="IdCorreo" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Asunto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Para" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="BCC" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="BCCO" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="ContenidoHTML" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Seccion" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Parametro">
+          <Key>
+            <PropertyRef Name="IdParametro" />
+          </Key>
+          <Property Name="IdParametro" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Valor" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Seccion" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BitacoraClaveAcceso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IdUsuarioConsulta" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IdEvento" Type="Int32" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <Property Name="Campo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ValorActual" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ValorNuevo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Acuse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Host" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BitacoraNavegacion">
+          <Key>
+            <PropertyRef Name="IdBitacora" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="IdPantalla" />
+            <PropertyRef Name="IdEvento" />
+            <PropertyRef Name="FechaRegistro" />
+          </Key>
+          <Property Name="IdBitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IdPantalla" Type="Int32" Nullable="false" />
+          <Property Name="IdEvento" Type="Int32" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdRegistro" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Campo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ValorActual" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ValorNuevo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Parametro" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Acuse" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Folio" Type="Guid" />
+          <Property Name="Host" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CatArea">
+          <Key>
+            <PropertyRef Name="IdArea" />
+          </Key>
+          <Property Name="IdArea" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CatUsuario" Relationship="BDPraxisModel.FK__CatUsuario__IdArea__25869641" FromRole="CatArea" ToRole="CatUsuario" />
+        </EntityType>
+        <EntityType Name="CatEstatus_Usuario">
+          <Key>
+            <PropertyRef Name="IdEstatusUsuario" />
+          </Key>
+          <Property Name="IdEstatusUsuario" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CatUsuario" Relationship="BDPraxisModel.FK__CatUsuario__IdEstatus__286302EC" FromRole="CatEstatus_Usuario" ToRole="CatUsuario" />
+        </EntityType>
+        <EntityType Name="CatRol">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdRol" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CatUsuario" Relationship="BDPraxisModel.FK__CatUsuario__IdRol__276EDEB3" FromRole="CatRol" ToRole="CatUsuario" />
+        </EntityType>
+        <Association Name="FK__CatUsuario__IdArea__25869641">
+          <End Type="BDPraxisModel.CatArea" Role="CatArea" Multiplicity="1" />
+          <End Type="BDPraxisModel.CatUsuario" Role="CatUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatArea">
+              <PropertyRef Name="IdArea" />
+            </Principal>
+            <Dependent Role="CatUsuario">
+              <PropertyRef Name="IdArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CatUsuario__IdEstatus__286302EC">
+          <End Type="BDPraxisModel.CatEstatus_Usuario" Role="CatEstatus_Usuario" Multiplicity="1" />
+          <End Type="BDPraxisModel.CatUsuario" Role="CatUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatEstatus_Usuario">
+              <PropertyRef Name="IdEstatusUsuario" />
+            </Principal>
+            <Dependent Role="CatUsuario">
+              <PropertyRef Name="IdEstatusUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CatUsuario__IdRol__276EDEB3">
+          <End Type="BDPraxisModel.CatRol" Role="CatRol" Multiplicity="1" />
+          <End Type="BDPraxisModel.CatUsuario" Role="CatUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatRol">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="CatUsuario">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CatInstitucion">
+          <Key>
+            <PropertyRef Name="IdInstitucion" />
+          </Key>
+          <Property Name="IdInstitucion" Type="Int32" Nullable="false" />
+          <Property Name="IdTipoInstitucion" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NombreLargo" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Carpeta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CatUsuario" Relationship="BDPraxisModel.FK_CatUsuario_CatInstitucion" FromRole="CatInstitucion" ToRole="CatUsuario" />
+          <NavigationProperty Name="CatTipoInstitucion" Relationship="BDPraxisModel.FK__CatInstit__IdTip__1CF15040" FromRole="CatInstitucion" ToRole="CatTipoInstitucion" />
+        </EntityType>
+        <EntityType Name="CatSexo">
+          <Key>
+            <PropertyRef Name="IdSexo" />
+          </Key>
+          <Property Name="IdSexo" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HistoriaClinica" Relationship="BDPraxisModel.FK_HistoriaClinica_CatSexo" FromRole="CatSexo" ToRole="HistoriaClinica" />
+        </EntityType>
+        <EntityType Name="CatTipoInformacion">
+          <Key>
+            <PropertyRef Name="IdTipoInformacion" />
+          </Key>
+          <Property Name="IdTipoInformacion" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_CatUsuario_CatInstitucion">
+          <End Type="BDPraxisModel.CatInstitucion" Role="CatInstitucion" Multiplicity="1" />
+          <End Type="BDPraxisModel.CatUsuario" Role="CatUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatInstitucion">
+              <PropertyRef Name="IdInstitucion" />
+            </Principal>
+            <Dependent Role="CatUsuario">
+              <PropertyRef Name="IdInstitucion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CatTipoInstitucion">
+          <Key>
+            <PropertyRef Name="IdTipoInstitucion" />
+          </Key>
+          <Property Name="IdTipoInstitucion" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CatInstitucion" Relationship="BDPraxisModel.FK__CatInstit__IdTip__1CF15040" FromRole="CatTipoInstitucion" ToRole="CatInstitucion" />
+        </EntityType>
+        <EntityType Name="CatTipoSangre">
+          <Key>
+            <PropertyRef Name="IdTipoSangre" />
+          </Key>
+          <Property Name="IdTipoSangre" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HistoriaClinica" Relationship="BDPraxisModel.FK_HistoriaClinica_CatTipoSangre" FromRole="CatTipoSangre" ToRole="HistoriaClinica" />
+        </EntityType>
+        <EntityType Name="HistoriaClinica">
+          <Key>
+            <PropertyRef Name="IdHistoriaClinica" />
+          </Key>
+          <Property Name="IdHistoriaClinica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Guid" Nullable="false" />
+          <Property Name="IdSexo" Type="Int32" Nullable="false" />
+          <Property Name="IdEstadoCivil" Type="Int32" Nullable="false" />
+          <Property Name="IdReligion" Type="Int32" Nullable="false" />
+          <Property Name="IdTipoSangre" Type="Int32" Nullable="false" />
+          <Property Name="IdEscolaridad" Type="Int32" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaActualizacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LugarNacimiento" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="LugarResidencia" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Ocupacion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroSeguridadSocial" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PolizaSeguro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AbueloPaterno" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="AbuelaPaterno" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="AbueloMaterno" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="AbuelaMaterno" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Padre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Madre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Hermano" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Hijo" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Vivienda" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Zoonosis" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Habitos" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IngestaLiquido" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Higiene" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Inmunizacion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="LenguaIndigena" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Combe" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ViajeReciente" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ExposicionBiomasa" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CronicoDegenerativo" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Quirurjicos" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Hospitalizacion" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Infectocontagioso" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Traumatico" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Toxicomania" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Transfusional" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Alergia" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ConsumoTabaco" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ConsumoAlcohol" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="InicioVidaSexual" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroParejaSexual" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Parejas" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CantidadHijo" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="MetodoPlanificacion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="InfeccionSexual" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Menarca" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Telarca" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Gesta" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Parto" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Aborto" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Cesarea" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Papanicolau" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Mastografia" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CatSexo" Relationship="BDPraxisModel.FK_HistoriaClinica_CatSexo" FromRole="HistoriaClinica" ToRole="CatSexo" />
+          <NavigationProperty Name="CatTipoSangre" Relationship="BDPraxisModel.FK_HistoriaClinica_CatTipoSangre" FromRole="HistoriaClinica" ToRole="CatTipoSangre" />
+          <NavigationProperty Name="CatUsuario" Relationship="BDPraxisModel.FK_HistoriaClinica_CatUsuario" FromRole="HistoriaClinica" ToRole="CatUsuario" />
+          <NavigationProperty Name="CatReligion" Relationship="BDPraxisModel.FK_HistoriaClinica_CatReligion" FromRole="HistoriaClinica" ToRole="CatReligion" />
+          <NavigationProperty Name="CatEscolaridad" Relationship="BDPraxisModel.FK_HistoriaClinica_CatEscolaridad" FromRole="HistoriaClinica" ToRole="CatEscolaridad" />
+          <NavigationProperty Name="CatEstadoCivil" Relationship="BDPraxisModel.FK_HistoriaClinica_CatEstadoCivil" FromRole="HistoriaClinica" ToRole="CatEstadoCivil" />
+        </EntityType>
+        <Association Name="FK__CatInstit__IdTip__1CF15040">
+          <End Type="BDPraxisModel.CatTipoInstitucion" Role="CatTipoInstitucion" Multiplicity="1" />
+          <End Type="BDPraxisModel.CatInstitucion" Role="CatInstitucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatTipoInstitucion">
+              <PropertyRef Name="IdTipoInstitucion" />
+            </Principal>
+            <Dependent Role="CatInstitucion">
+              <PropertyRef Name="IdTipoInstitucion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoriaClinica_CatSexo">
+          <End Type="BDPraxisModel.CatSexo" Role="CatSexo" Multiplicity="1" />
+          <End Type="BDPraxisModel.HistoriaClinica" Role="HistoriaClinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatSexo">
+              <PropertyRef Name="IdSexo" />
+            </Principal>
+            <Dependent Role="HistoriaClinica">
+              <PropertyRef Name="IdSexo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoriaClinica_CatTipoSangre">
+          <End Type="BDPraxisModel.CatTipoSangre" Role="CatTipoSangre" Multiplicity="1" />
+          <End Type="BDPraxisModel.HistoriaClinica" Role="HistoriaClinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatTipoSangre">
+              <PropertyRef Name="IdTipoSangre" />
+            </Principal>
+            <Dependent Role="HistoriaClinica">
+              <PropertyRef Name="IdTipoSangre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoriaClinica_CatUsuario">
+          <End Type="BDPraxisModel.CatUsuario" Role="CatUsuario" Multiplicity="1" />
+          <End Type="BDPraxisModel.HistoriaClinica" Role="HistoriaClinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatUsuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="HistoriaClinica">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ModuloxRol">
+          <Key>
+            <PropertyRef Name="IdPantalla" />
+            <PropertyRef Name="IdInstitucion" />
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdPantalla" Type="Int32" Nullable="false" />
+          <Property Name="IdInstitucion" Type="Int32" Nullable="false" />
+          <Property Name="IdRol" Type="Int32" Nullable="false" />
+          <Property Name="Aprobar" Type="Boolean" Nullable="false" />
+          <Property Name="Escritura" Type="Boolean" Nullable="false" />
+          <Property Name="Lectura" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ModuloxUsuario">
+          <Key>
+            <PropertyRef Name="IdPantalla" />
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdPantalla" Type="Int32" Nullable="false" />
+          <Property Name="IdUsuario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Aprobar" Type="Boolean" Nullable="false" />
+          <Property Name="Escritura" Type="Boolean" Nullable="false" />
+          <Property Name="Lectura" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatReligion">
+          <Key>
+            <PropertyRef Name="IdReligion" />
+          </Key>
+          <Property Name="IdReligion" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HistoriaClinica" Relationship="BDPraxisModel.FK_HistoriaClinica_CatReligion" FromRole="CatReligion" ToRole="HistoriaClinica" />
+        </EntityType>
+        <Association Name="FK_HistoriaClinica_CatReligion">
+          <End Type="BDPraxisModel.CatReligion" Role="CatReligion" Multiplicity="1" />
+          <End Type="BDPraxisModel.HistoriaClinica" Role="HistoriaClinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatReligion">
+              <PropertyRef Name="IdReligion" />
+            </Principal>
+            <Dependent Role="HistoriaClinica">
+              <PropertyRef Name="IdReligion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="HistoriaClaveAcceso">
+          <Key>
+            <PropertyRef Name="IdHistoria" />
+          </Key>
+          <Property Name="IdHistoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Guid" />
+          <Property Name="Pwd" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PerfilUsuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Guid" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Rfc" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Profesion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Cedula" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Consultorio" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="AlcaldiaMunicipio" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CostoConsulta" Type="Double" />
+          <Property Name="ConsultaDomicilio" Type="Boolean" />
+          <Property Name="ConsultaVideollamada" Type="Boolean" />
+          <NavigationProperty Name="CatUsuario" Relationship="BDPraxisModel.FK_PerfilUsuario_CatUsuario" FromRole="PerfilUsuario" ToRole="CatUsuario" />
+        </EntityType>
+        <Association Name="FK_PerfilUsuario_CatUsuario">
+          <End Type="BDPraxisModel.CatUsuario" Role="CatUsuario" Multiplicity="1" />
+          <End Type="BDPraxisModel.PerfilUsuario" Role="PerfilUsuario" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CatUsuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="PerfilUsuario">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CatEscolaridad">
+          <Key>
+            <PropertyRef Name="IdEscolaridad" />
+          </Key>
+          <Property Name="IdEscolaridad" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HistoriaClinica" Relationship="BDPraxisModel.FK_HistoriaClinica_CatEscolaridad" FromRole="CatEscolaridad" ToRole="HistoriaClinica" />
+        </EntityType>
+        <Association Name="FK_HistoriaClinica_CatEscolaridad">
+          <End Type="BDPraxisModel.CatEscolaridad" Role="CatEscolaridad" Multiplicity="1" />
+          <End Type="BDPraxisModel.HistoriaClinica" Role="HistoriaClinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatEscolaridad">
+              <PropertyRef Name="IdEscolaridad" />
+            </Principal>
+            <Dependent Role="HistoriaClinica">
+              <PropertyRef Name="IdEscolaridad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CatEstadoCivil">
+          <Key>
+            <PropertyRef Name="IdEstadoCivil" />
+          </Key>
+          <Property Name="IdEstadoCivil" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HistoriaClinica" Relationship="BDPraxisModel.FK_HistoriaClinica_CatEstadoCivil" FromRole="CatEstadoCivil" ToRole="HistoriaClinica" />
+        </EntityType>
+        <Association Name="FK_HistoriaClinica_CatEstadoCivil">
+          <End Type="BDPraxisModel.CatEstadoCivil" Role="CatEstadoCivil" Multiplicity="1" />
+          <End Type="BDPraxisModel.HistoriaClinica" Role="HistoriaClinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatEstadoCivil">
+              <PropertyRef Name="IdEstadoCivil" />
+            </Principal>
+            <Dependent Role="HistoriaClinica">
+              <PropertyRef Name="IdEstadoCivil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDPraxisModelStoreContainer" CdmEntityContainer="BDPRAXISEntities">
+          <EntitySetMapping Name="CatUsuario">
+            <EntityTypeMapping TypeName="BDPraxisModel.CatUsuario">
+              <MappingFragment StoreEntitySet="CatUsuario">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdInstitucion" ColumnName="IdInstitucion" />
+                <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="IdEstatusUsuario" ColumnName="IdEstatusUsuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Curp" ColumnName="Curp" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaPwd" ColumnName="FechaPwd" />
+                <ScalarProperty Name="FechaAcceso" ColumnName="FechaAcceso" />
+                <ScalarProperty Name="NombreImagen" ColumnName="NombreImagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FolioClaveAcceso">
+            <EntityTypeMapping TypeName="BDPraxisModel.FolioClaveAcceso">
+              <MappingFragment StoreEntitySet="FolioClaveAcceso">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="FechaExpiracion" ColumnName="FechaExpiracion" />
+                <ScalarProperty Name="Folio" ColumnName="Folio" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdFolio" ColumnName="IdFolio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatCorreo">
+            <EntityTypeMapping TypeName="BDPraxisModel.CatCorreo">
+              <MappingFragment StoreEntitySet="CatCorreo">
+                <ScalarProperty Name="Seccion" ColumnName="Seccion" />
+                <ScalarProperty Name="ContenidoHTML" ColumnName="ContenidoHTML" />
+                <ScalarProperty Name="BCCO" ColumnName="BCCO" />
+                <ScalarProperty Name="BCC" ColumnName="BCC" />
+                <ScalarProperty Name="Para" ColumnName="Para" />
+                <ScalarProperty Name="Asunto" ColumnName="Asunto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdCorreo" ColumnName="IdCorreo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parametro">
+            <EntityTypeMapping TypeName="BDPraxisModel.Parametro">
+              <MappingFragment StoreEntitySet="Parametro">
+                <ScalarProperty Name="Seccion" ColumnName="Seccion" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdParametro" ColumnName="IdParametro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_ModuloAcceso_Modulos_ConsultaxUsuario" FunctionName="BDPraxisModel.Store.sp_ModuloAcceso_Modulos_ConsultaxUsuario" />
+          <EntitySetMapping Name="BitacoraClaveAcceso">
+            <EntityTypeMapping TypeName="BDPraxisModel.BitacoraClaveAcceso">
+              <MappingFragment StoreEntitySet="BitacoraClaveAcceso">
+                <ScalarProperty Name="Host" ColumnName="Host" />
+                <ScalarProperty Name="Acuse" ColumnName="Acuse" />
+                <ScalarProperty Name="ValorNuevo" ColumnName="ValorNuevo" />
+                <ScalarProperty Name="ValorActual" ColumnName="ValorActual" />
+                <ScalarProperty Name="Campo" ColumnName="Campo" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="IdEvento" ColumnName="IdEvento" />
+                <ScalarProperty Name="IdUsuarioConsulta" ColumnName="IdUsuarioConsulta" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitacoraNavegacion">
+            <EntityTypeMapping TypeName="BDPraxisModel.BitacoraNavegacion">
+              <MappingFragment StoreEntitySet="BitacoraNavegacion">
+                <ScalarProperty Name="Host" ColumnName="Host" />
+                <ScalarProperty Name="Folio" ColumnName="Folio" />
+                <ScalarProperty Name="Acuse" ColumnName="Acuse" />
+                <ScalarProperty Name="Parametro" ColumnName="Parametro" />
+                <ScalarProperty Name="ValorNuevo" ColumnName="ValorNuevo" />
+                <ScalarProperty Name="ValorActual" ColumnName="ValorActual" />
+                <ScalarProperty Name="Campo" ColumnName="Campo" />
+                <ScalarProperty Name="IdRegistro" ColumnName="IdRegistro" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="IdEvento" ColumnName="IdEvento" />
+                <ScalarProperty Name="IdPantalla" ColumnName="IdPantalla" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatArea">
+            <EntityTypeMapping TypeName="BDPraxisModel.CatArea">
+              <MappingFragment StoreEntitySet="CatArea">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatEstatus_Usuario">
+            <EntityTypeMapping TypeName="BDPraxisModel.CatEstatus_Usuario">
+              <MappingFragment StoreEntitySet="CatEstatus_Usuario">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdEstatusUsuario" ColumnName="IdEstatusUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatRol">
+            <EntityTypeMapping TypeName="BDPraxisModel.CatRol">
+              <MappingFragment StoreEntitySet="CatRol">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatInstitucion">
+            <EntityTypeMapping TypeName="BDPraxisModel.CatInstitucion">
+              <MappingFragment StoreEntitySet="CatInstitucion">
+                <ScalarProperty Name="Carpeta" ColumnName="Carpeta" />
+                <ScalarProperty Name="NombreLargo" ColumnName="NombreLargo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdTipoInstitucion" ColumnName="IdTipoInstitucion" />
+                <ScalarProperty Name="IdInstitucion" ColumnName="IdInstitucion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatSexo">
+            <EntityTypeMapping TypeName="BDPraxisModel.CatSexo">
+              <MappingFragment StoreEntitySet="CatSexo">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdSexo" ColumnName="IdSexo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatTipoInformacion">
+            <EntityTypeMapping TypeName="BDPraxisModel.CatTipoInformacion">
+              <MappingFragment StoreEntitySet="CatTipoInformacion">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdTipoInformacion" ColumnName="IdTipoInformacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatTipoInstitucion">
+            <EntityTypeMapping TypeName="BDPraxisModel.CatTipoInstitucion">
+              <MappingFragment StoreEntitySet="CatTipoInstitucion">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdTipoInstitucion" ColumnName="IdTipoInstitucion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatTipoSangre">
+            <EntityTypeMapping TypeName="BDPraxisModel.CatTipoSangre">
+              <MappingFragment StoreEntitySet="CatTipoSangre">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdTipoSangre" ColumnName="IdTipoSangre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistoriaClinica">
+            <EntityTypeMapping TypeName="BDPraxisModel.HistoriaClinica">
+              <MappingFragment StoreEntitySet="HistoriaClinica">
+                <ScalarProperty Name="Mastografia" ColumnName="Mastografia" />
+                <ScalarProperty Name="Papanicolau" ColumnName="Papanicolau" />
+                <ScalarProperty Name="Cesarea" ColumnName="Cesarea" />
+                <ScalarProperty Name="Aborto" ColumnName="Aborto" />
+                <ScalarProperty Name="Parto" ColumnName="Parto" />
+                <ScalarProperty Name="Gesta" ColumnName="Gesta" />
+                <ScalarProperty Name="Telarca" ColumnName="Telarca" />
+                <ScalarProperty Name="Menarca" ColumnName="Menarca" />
+                <ScalarProperty Name="InfeccionSexual" ColumnName="InfeccionSexual" />
+                <ScalarProperty Name="MetodoPlanificacion" ColumnName="MetodoPlanificacion" />
+                <ScalarProperty Name="CantidadHijo" ColumnName="CantidadHijo" />
+                <ScalarProperty Name="Parejas" ColumnName="Parejas" />
+                <ScalarProperty Name="NumeroParejaSexual" ColumnName="NumeroParejaSexual" />
+                <ScalarProperty Name="InicioVidaSexual" ColumnName="InicioVidaSexual" />
+                <ScalarProperty Name="ConsumoAlcohol" ColumnName="ConsumoAlcohol" />
+                <ScalarProperty Name="ConsumoTabaco" ColumnName="ConsumoTabaco" />
+                <ScalarProperty Name="Alergia" ColumnName="Alergia" />
+                <ScalarProperty Name="Transfusional" ColumnName="Transfusional" />
+                <ScalarProperty Name="Toxicomania" ColumnName="Toxicomania" />
+                <ScalarProperty Name="Traumatico" ColumnName="Traumatico" />
+                <ScalarProperty Name="Infectocontagioso" ColumnName="Infectocontagioso" />
+                <ScalarProperty Name="Hospitalizacion" ColumnName="Hospitalizacion" />
+                <ScalarProperty Name="Quirurjicos" ColumnName="Quirurjicos" />
+                <ScalarProperty Name="CronicoDegenerativo" ColumnName="CronicoDegenerativo" />
+                <ScalarProperty Name="ExposicionBiomasa" ColumnName="ExposicionBiomasa" />
+                <ScalarProperty Name="ViajeReciente" ColumnName="ViajeReciente" />
+                <ScalarProperty Name="Combe" ColumnName="Combe" />
+                <ScalarProperty Name="LenguaIndigena" ColumnName="LenguaIndigena" />
+                <ScalarProperty Name="Inmunizacion" ColumnName="Inmunizacion" />
+                <ScalarProperty Name="Higiene" ColumnName="Higiene" />
+                <ScalarProperty Name="IngestaLiquido" ColumnName="IngestaLiquido" />
+                <ScalarProperty Name="Habitos" ColumnName="Habitos" />
+                <ScalarProperty Name="Zoonosis" ColumnName="Zoonosis" />
+                <ScalarProperty Name="Vivienda" ColumnName="Vivienda" />
+                <ScalarProperty Name="Hijo" ColumnName="Hijo" />
+                <ScalarProperty Name="Hermano" ColumnName="Hermano" />
+                <ScalarProperty Name="Madre" ColumnName="Madre" />
+                <ScalarProperty Name="Padre" ColumnName="Padre" />
+                <ScalarProperty Name="AbuelaMaterno" ColumnName="AbuelaMaterno" />
+                <ScalarProperty Name="AbueloMaterno" ColumnName="AbueloMaterno" />
+                <ScalarProperty Name="AbuelaPaterno" ColumnName="AbuelaPaterno" />
+                <ScalarProperty Name="AbueloPaterno" ColumnName="AbueloPaterno" />
+                <ScalarProperty Name="PolizaSeguro" ColumnName="PolizaSeguro" />
+                <ScalarProperty Name="NumeroSeguridadSocial" ColumnName="NumeroSeguridadSocial" />
+                <ScalarProperty Name="Ocupacion" ColumnName="Ocupacion" />
+                <ScalarProperty Name="LugarResidencia" ColumnName="LugarResidencia" />
+                <ScalarProperty Name="LugarNacimiento" ColumnName="LugarNacimiento" />
+                <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="IdEscolaridad" ColumnName="IdEscolaridad" />
+                <ScalarProperty Name="IdTipoSangre" ColumnName="IdTipoSangre" />
+                <ScalarProperty Name="IdReligion" ColumnName="IdReligion" />
+                <ScalarProperty Name="IdEstadoCivil" ColumnName="IdEstadoCivil" />
+                <ScalarProperty Name="IdSexo" ColumnName="IdSexo" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdHistoriaClinica" ColumnName="IdHistoriaClinica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModuloxRol">
+            <EntityTypeMapping TypeName="BDPraxisModel.ModuloxRol">
+              <MappingFragment StoreEntitySet="ModuloxRol">
+                <ScalarProperty Name="Lectura" ColumnName="Lectura" />
+                <ScalarProperty Name="Escritura" ColumnName="Escritura" />
+                <ScalarProperty Name="Aprobar" ColumnName="Aprobar" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="IdInstitucion" ColumnName="IdInstitucion" />
+                <ScalarProperty Name="IdPantalla" ColumnName="IdPantalla" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModuloxUsuario">
+            <EntityTypeMapping TypeName="BDPraxisModel.ModuloxUsuario">
+              <MappingFragment StoreEntitySet="ModuloxUsuario">
+                <ScalarProperty Name="Lectura" ColumnName="Lectura" />
+                <ScalarProperty Name="Escritura" ColumnName="Escritura" />
+                <ScalarProperty Name="Aprobar" ColumnName="Aprobar" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdPantalla" ColumnName="IdPantalla" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatReligion">
+            <EntityTypeMapping TypeName="BDPraxisModel.CatReligion">
+              <MappingFragment StoreEntitySet="CatReligion">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdReligion" ColumnName="IdReligion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistoriaClaveAcceso">
+            <EntityTypeMapping TypeName="BDPraxisModel.HistoriaClaveAcceso">
+              <MappingFragment StoreEntitySet="HistoriaClaveAcceso">
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdHistoria" ColumnName="IdHistoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PerfilUsuario">
+            <EntityTypeMapping TypeName="BDPraxisModel.PerfilUsuario">
+              <MappingFragment StoreEntitySet="PerfilUsuario">
+                <ScalarProperty Name="ConsultaVideollamada" ColumnName="ConsultaVideollamada" />
+                <ScalarProperty Name="ConsultaDomicilio" ColumnName="ConsultaDomicilio" />
+                <ScalarProperty Name="CostoConsulta" ColumnName="CostoConsulta" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="AlcaldiaMunicipio" ColumnName="AlcaldiaMunicipio" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Consultorio" ColumnName="Consultorio" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+                <ScalarProperty Name="Rfc" ColumnName="Rfc" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatEscolaridad">
+            <EntityTypeMapping TypeName="BDPraxisModel.CatEscolaridad">
+              <MappingFragment StoreEntitySet="CatEscolaridad">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdEscolaridad" ColumnName="IdEscolaridad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatEstadoCivil">
+            <EntityTypeMapping TypeName="BDPraxisModel.CatEstadoCivil">
+              <MappingFragment StoreEntitySet="CatEstadoCivil">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdEstadoCivil" ColumnName="IdEstadoCivil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

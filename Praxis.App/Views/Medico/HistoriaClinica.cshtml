@@ -1,0 +1,431 @@
+﻿@using Praxis.Model.ViewModel;
+@model HistoriaClinicaViewModel
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox-content">
+                    <div class="sk-spinner sk-spinner-wave">
+                        <div class="sk-rect1"></div>
+                        <div class="sk-rect2"></div>
+                        <div class="sk-rect3"></div>
+                        <div class="sk-rect4"></div>
+                        <div class="sk-rect5"></div>
+                    </div>
+
+                    <div class="contact-box">
+                        <div class="col-sm-2">
+                            <div class="text-center">
+                                <img alt="image" class="img-circle m-t-xs img-responsive" src="~/Content/Img/Usuarios/@ViewBag.Imagen">
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <strong>Nombre:</strong>
+                            <p>@ViewBag.Nombre @ViewBag.ApellidoPaterno @ViewBag.ApellidoMaterno</p>
+                            <strong>Edad:</strong>
+                            <p>31 años</p>
+                            <strong>Curp:</strong>
+                            <p>@ViewBag.Curp</p>
+                            <strong>Ultima Actualización :</strong>
+                            <p>@Model.FechaActualizacion</p>
+                        </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Datos</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="sk-spinner sk-spinner-wave">
+                        <div class="sk-rect1"></div>
+                        <div class="sk-rect2"></div>
+                        <div class="sk-rect3"></div>
+                        <div class="sk-rect4"></div>
+                        <div class="sk-rect5"></div>
+                    </div>
+                    <form id="form" action="#" class="wizard-big">
+                        <h1>Identificación</h1>
+                        <fieldset>
+                            <h2 class="faq-question">FICHA TÉCNICA</h2>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>* Sexo:</label>
+                                        <select id="selSexo" style="width:100%" name="IdSexo" class="required"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>* Fecha de Nacimiento:</label>
+                                        <input type="text" id="dpFechaNacimiento" name="FechaNacimiento" style="width:100%" required="required" value="@Model.FechaNacimiento">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Lugar de Nacimiento:</label>
+                                        <input id="txtLugarNacimiento" name="LugarNacimiento" type="text" class="form-control" value="@Model.LugarNacimiento">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Lugar de Residencia:</label>
+                                        <input id="txtLugarResidencia" name="LugarResidencia" type="text" class="form-control" value="@Model.LugarResidencia">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>Escolaridad:</label>
+                                        <select id="selEscolaridad" style="width:100%" name="IdEscolaridad"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Ocupación:</label>
+                                        <input id="txtOcupacion" name="Ocupacion" type="text" class="form-control" value="@Model.Ocupacion">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>* Religión:</label>
+                                        <select id="selReligion" style="width:100%" name="IdReligion" class="required"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>* Estado Civil:</label>
+                                        <select id="selEstadoCivil" style="width:100%" name="IdEstadoCivil" class="required"></select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>Número de Seguridad Social:</label>
+                                        <input id="txtNumeroSeguridadSocial" name="NumeroSeguridadSocial" type="text" class="form-control" value="@Model.NumeroSeguridadSocial">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Póliza de Seguro :</label>
+                                        <input id="txtPolizaSeguro" name="PolizaSeguro" type="text" class="form-control" value="@Model.PolizaSeguro">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                        <h1>AHF</h1>
+                        <fieldset>
+                            <h2 class="faq-question">ANTECEDENTES HEREDO FAMILIARES</h2>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>Abuelo Paterno:</label>
+                                        <textarea class="form-control" rows="3" id="txtAbueloPaterno" name="AbueloPaterno">@Model.AbueloPaterno</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Abuelo Materno:</label>
+                                        <textarea class="form-control" rows="3" id="txtAbueloMaterno" name="AbueloMaterno">@Model.AbueloMaterno</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Padre:</label>
+                                        <textarea class="form-control" rows="3" id="txtPadre" name="Padre">@Model.Padre</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>Abuela Paterna:</label>
+                                        <textarea class="form-control" rows="3" id="txtAbuelaPaterno" name="AbuelaPaterno">@Model.AbuelaPaterno</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Abuela Materna:</label>
+                                        <textarea class="form-control" rows="3" id="txtAbuelaMaterno" name="AbuelaMaterno">@Model.AbuelaMaterno</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Madre:</label>
+                                        <textarea class="form-control" rows="3" id="txtMadre" name="Madre">@Model.Madre</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>Hermanos:</label>
+                                        <textarea class="form-control" rows="3" id="txtHermano" name="Hermano">@Model.Hermano</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Hijos:</label>
+                                        <textarea class="form-control" rows="3" id="txtHijo" name="Hijo">@Model.Hijo</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <h1>APNP</h1>
+                        <fieldset>
+                            <h2 class="faq-question">ANTECEDENTES PERSONALES PATOLÓGICOS</h2>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Vivienda:</label>
+                                    <textarea class="form-control" rows="3" id="txtVivienda" name="Vivienda">@Model.Vivienda</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Zoonosis:</label>
+                                    <textarea class="form-control" rows="3" id="txtZoonosis" name="Zoonosis">@Model.Zoonosis</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Hábitos Alimenticios y Actividad Física:</label>
+                                    <textarea class="form-control" rows="3" id="txtHabitos" name="Habitos">@Model.Habitos</textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Ingesta de Líquidos y Uresis Diaria:</label>
+                                    <textarea class="form-control" rows="3" id="txtIngestaLiquido" name="IngestaLiquido">@Model.IngestaLiquido</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Hábitos de Higiene:</label>
+                                    <textarea class="form-control" rows="3" id="txtHigiene" name="Higiene">@Model.Higiene</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Inmunizaciones:</label>
+                                    <textarea class="form-control" rows="3" id="txtInmunizacion" name="Inmunizacion">@Model.Inmunizacion</textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Combe:</label>
+                                    <textarea class="form-control" rows="3" id="txtCombe" name="Combe">@Model.Combe</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>* Viajes Recientes:</label>
+                                    <textarea class="form-control required" rows="3" id="txtViajesRecientes" name="ViajesRecientes">@Model.ViajesRecientes</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>* Exposición a Biomasa:</label>
+                                    <textarea class="form-control required" rows="3" id="txtExposicionBiomasa" name="ExposicionBiomasa">@Model.ExposicionBiomasa</textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>* Tipo de Sangre:</label>
+                                    <select id="selTipoSangre" style="width:100%" name="IdTipoSangre" class="required"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Lenguaje Indígena:</label>
+                                    <textarea class="form-control" rows="3" id="txtLenguaIndigena" name="LenguaIndigena">@Model.LenguaIndigena</textarea>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <h1>APP</h1>
+                        <fieldset>
+                            <h2 class="faq-question">ANTECEDENTES PERSONALES PATOLÓGICOS</h2>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>* Crónicos Degenerativos:</label>
+                                    <textarea class="form-control required" rows="3" id="txtCronicoDegenerativo" name="CronicoDegenerativo">@Model.CronicoDegenerativo</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>* Quirúrgicos:</label>
+                                    <textarea class="form-control required" rows="3" id="txtQuirurjicos" name="Quirurjicos">@Model.Quirurjicos</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>* Hospitalizaciones Previas:</label>
+                                    <textarea class="form-control required" rows="3" id="txtHospitalizacion" name="Hospitalizacion">@Model.Hospitalizacion</textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>* Infectocontagiosos: </label><a href="#" data-toggle="tooltip" data-placement="right" title="Incluyendo VIH, HEPATITIS"><i class="fa fa-question"></i></a>
+                                    <textarea class="form-control required" rows="3" id="txtInfectocontagioso" name="Infectocontagioso">@Model.Infectocontagioso</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>* Traumáticos:</label>
+                                    <textarea class="form-control required" rows="3" id="txtTraumatico" name="Traumatico">@Model.Traumatico</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>* Toxicomanías:</label>
+                                    <textarea class="form-control required" rows="3" id="txtToxicomania" name="Toxicomania">@Model.Toxicomania</textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>* Transfusionales: </label>
+                                    <textarea class="form-control required" rows="3" id="txtTransfusional" name="Transfusional">@Model.Transfusional</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>* Alergias: </label><a href="#" data-toggle="tooltip" data-placement="right" title="Etiología y presentación clínica"><i class="fa fa-question"></i></a>
+                                    <textarea class="form-control required" rows="3" id="txtAlergia" name="Alergia">@Model.Alergia</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>* Consumo de Tabaco:</label>
+                                    <textarea class="form-control required" rows="3" id="txtConsumoTabaco" name="ConsumoTabaco">@Model.ConsumoTabaco</textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>* Consumo de Alcohol: </label>
+                                    <textarea class="form-control required" rows="3" id="txtConsumoAlcohol" name="ConsumoAlcohol">@Model.ConsumoAlcohol</textarea>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <h1>AGYO / AA</h1>
+                        <fieldset>
+                            <h2 class="faq-question">GINECO OBSTÉTRICOS / ANDROLOGICOS</h2>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Inicio de Vida Sexual Activa: </label>
+                                    <textarea class="form-control" rows="3" id="txtInicioVidaSexual" name="InicioVidaSexual">@Model.InicioVidaSexual</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Número de Parejas Sexuales: </label>
+                                    <textarea class="form-control" rows="3" id="txtNumeroParejaSexual" name="NumeroParejaSexual">@Model.NumeroParejaSexual</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Parejas: </label><a href="#" data-toggle="tooltip" data-placement="right" title="Hombres y/o Mujeres"><i class="fa fa-question"></i></a>
+                                    <textarea class="form-control" rows="3" id="txtParejas" name="Parejas">@Model.Parejas</textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Cantidad de Hijos: </label>
+                                    <textarea class="form-control" rows="3" id="txtCantidadHijo" name="CantidadHijo">@Model.CantidadHijo</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>* Métodos de Planificación Familiar: </label>
+                                    <textarea class="form-control required" rows="3" id="txtMetodoPlanificacion" name="MetodoPlanificacion">@Model.MetodoPlanificacion</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>* Infecciones de Transmisión Sexual: </label>
+                                    <textarea class="form-control required" rows="3" id="txtInfeccionSexual" name="InfeccionSexual">@Model.InfeccionSexual</textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="panel panel-primary agyo">
+                                    <div class="panel-heading">
+                                        Sexo Femenino
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label>Menarca: </label>
+                                                <textarea class="form-control" rows="3" id="txtMenarca" name="Menarca">@Model.Menarca</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Telarca: </label>
+                                                <textarea class="form-control" rows="3" id="txtTelarca" name="Telarca">@Model.Telarca</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>* Gestas: </label>
+                                                <textarea class="form-control" rows="3" id="txtGesta" name="Gesta">@Model.Gesta</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label>* Partos: </label><a href="#" data-toggle="tooltip" data-placement="right" title="A las cuantas semanas"><i class="fa fa-question"></i></a>
+                                                <textarea class="form-control" rows="3" id="txtParto" name="Parto">@Model.Parto</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>* Abortos: </label><a href="#" data-toggle="tooltip" data-placement="right" title="A las cuantas semanas, espontaneo o inducido"><i class="fa fa-question"></i></a>
+                                                <textarea class="form-control" rows="3" id="txtAborto" name="Aborto">@Model.Aborto</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>* Cesáreas: </label><a href="#" data-toggle="tooltip" data-placement="right" title="A las cuantas semanas, motivo"><i class="fa fa-question"></i></a>
+                                                <textarea class="form-control" rows="3" id="txtCesarea" name="Cesarea">@Model.Cesarea</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label>* Papanicolau: </label><a href="#" data-toggle="tooltip" data-placement="right" title="Cada cuanto, cuándo fue el último y resultado"><i class="fa fa-question"></i></a>
+                                                <textarea class="form-control" rows="3" id="txtPapanicolau" name="Papanicolau">@Model.Papanicolau</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>* Mastografía: </label><a href="#" data-toggle="tooltip" data-placement="right" title="Cada cuanto, cuándo fue la última y resultado"><i class="fa fa-question"></i></a>
+                                                <textarea class="form-control" rows="3" id="txtMastografia" name="Mastografia">@Model.Mastografia</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <h1>Estudios Clínicos</h1>
+                        <fieldset>
+                            <h2 class="faq-question">ESTUDIOS CLÍNICOS</h2>
+                            <div class="col-lg-6">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        Carga de Documentos:
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label>Nombre:</label>
+                                                <input id="txtNombreEstudio" name="NombreEstudio" type="text" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Descripción:</label>
+                                                <textarea class="form-control" rows="3" id="txtDescripciónEstudio" name="DescripciónEstudio"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                                    <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+                                                    <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Examinar...</span><span class="fileinput-exists">Cambiar</span><input type="file" name="..."></span>
+                                                    <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Eliminar</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        Carga de Documentos:
+                                    </div>
+                                    <div class="panel-body">
+                                        <div id="grdEstudiosClinicos"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <input type="hidden" id="IdUsuario" name="IdUsuario" value="@ViewBag.IdUsuario" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<input type="hidden" id="hdnUrlSexo" value="@Url.Action("ObtenerSexoSelect2", "Catalogos")" />
+<input type="hidden" id="hdnUrlEscolaridad" value="@Url.Action("ObtenerEscolaridadSelect2", "Catalogos")" />
+<input type="hidden" id="hdnUrlReligion" value="@Url.Action("ObtenerReligionSelect2", "Catalogos")" />
+<input type="hidden" id="hdnUrlEstadoCivil" value="@Url.Action("ObtenerEstadoCivilSelect2", "Catalogos")" />
+<input type="hidden" id="hdnUrlTipoSangre" value="@Url.Action("ObtenerTipoSangreSelect2", "Catalogos")" />
+<input type="hidden" id="hdnMov" value="@ViewBag.HistoriaClinica" />
+<input type="hidden" id="hdnUrlAdministracion" value="@Url.Action("Administracion", "Medico")" />
+<input type="hidden" id="hdnIdSexo" value="@Model.IdSexo" />
+<input type="hidden" id="hdnUrlSexoId" value="@Url.Action("ObtenerSexoPorIdSelect2", "Catalogos")" />
+<input type="hidden" id="hdnIdEscolaridad" value="@Model.IdEscolaridad" />
+<input type="hidden" id="hdnUrlEscolaridadId" value="@Url.Action("ObtenerEscolaridadPorIdSelect2", "Catalogos")" />
+<input type="hidden" id="hdnIdReligion" value="@Model.IdReligion" />
+<input type="hidden" id="hdnUrlReligionId" value="@Url.Action("ObtenerReligionPorIdSelect2", "Catalogos")" />
+<input type="hidden" id="hdnIdEstadoCivil" value="@Model.IdEstadoCivil" />
+<input type="hidden" id="hdnUrlEstadoCivilId" value="@Url.Action("ObtenerEstadoCivilPorIdSelect2", "Catalogos")" />
+<input type="hidden" id="hdnIdTipoSangre" value="@Model.IdTipoSangre" />
+<input type="hidden" id="hdnUrlTipoSangreId" value="@Url.Action("ObtenerTipoSangrePorIdSelect2", "Catalogos")" />
+
+@section Scripts {
+
+    @*<script src="~/Scripts/plugins/Kendo2021/kendo.all.min.js"></script>*@
+    <script src="~/Scripts/Medico/HistoriaClinica.js"></script>
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/select2")
+    @Scripts.Render("~/plugins/jasnyBootstrap")
+
+}
+
+@section Styles {
+    @*<link rel="stylesheet" href="~/Content/plugins/Kendo2021/kendo.default-v2.min.css" />*@
+    <link rel="stylesheet" href="~/Content/Medico/HistoriaClinica.css" />
+    @Styles.Render("~/plugins/wizardStepsStyles")
+    @Styles.Render("~/plugins/select2Styles")
+    @Styles.Render("~/plugins/jasnyBootstrapStyles")
+}
+

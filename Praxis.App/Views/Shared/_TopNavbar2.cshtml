@@ -1,0 +1,58 @@
+﻿@using Praxis.Model.ViewModel
+@model MenuViewModel
+
+<div class="row border-bottom white-bg">
+    <nav class="navbar navbar-static-top" role="navigation">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <i class="fa fa-reorder"></i>
+            </button>
+            <a href="#" class="navbar-brand">PRAXIS</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a aria-expanded="false" role="button" href="@Url.Action("Index", "Home")"> Inicio</a>
+                </li>
+                @if (Model.ModuloVM != null)
+                 {
+                     int index = 0;
+                     int indexSubmodulo = 0;
+                     foreach (var Modulo in Model.ModuloVM)
+                     {
+                        <li class="dropdown">
+                            <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> @Modulo.Nombre <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                @foreach (var SubModulo in Model.ModuloVM[index].SubModuloVM)
+                                {
+                                    <li class="dropdown-submenu">
+
+                                        <a class="test" href="#">@SubModulo.Nombre <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            @foreach (var Pantalla in Model.ModuloVM[index].SubModuloVM[indexSubmodulo].PantallaVM)
+                                            {
+                                                <li><a href="@Url.Action(Pantalla.Accion.Trim(), Pantalla.Controlador.Trim())">@Pantalla.Nombre</a></li>
+                                            }
+                                        </ul>
+                                    </li>
+                                    indexSubmodulo++;
+                                }
+                            </ul>     
+                        </li>
+                        indexSubmodulo = 0;
+                        index++;
+                    }
+                }
+
+
+            </ul>
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <a href="@Url.Action("Logout","Login")">
+                        <i class="fa fa-sign-out"></i> Cerrar Sesión
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

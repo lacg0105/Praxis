@@ -1,0 +1,79 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PRAXIS | Login</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="~/Content/animate.css" rel="stylesheet">
+    <link href="~/Content/style.css" rel="stylesheet">
+    <link href="@Url.Content("~/Scripts/plugins/jquery-ui/jquery-ui.min.css")" rel="stylesheet" type="text/css" />
+    @Styles.Render("~/plugins/sweetAlertStyles")
+    @Styles.Render("~/Content/plugins/Kendo/KendoUi")
+    @Styles.Render("~/plugins/toastrStyles")
+    <link href="~/Content/Pages/Login.css" rel="stylesheet" />
+</head>
+
+<body class="gray-bg login">
+
+    <div class="middle-box text-center loginscreen  animated fadeInDown">
+        <div class="ibox-content" style="background-color:white">
+            <div>
+
+                <img class="img-responsive logoPraxis" src="~/Content/Img/Logo.png" />
+
+            </div>
+            <h3>Bienvenido</h3>
+            <form class="m-t" role="form" id="frmLoginForm" data-role="validator" novalidate="novalidate">
+                <div class="FormsLogin">
+                    <div class="sk-spinner sk-spinner-wave">
+                        <div class="sk-rect1"></div>
+                        <div class="sk-rect2"></div>
+                        <div class="sk-rect3"></div>
+                        <div class="sk-rect4"></div>
+                        <div class="sk-rect5"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group has-feedback">
+                            <input id="txtUsuario" type="email" class="form-control" placeholder="Correo" name="Correo">
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </div>
+                        <div class="validator-msg"><span class="k-invalid-msg" data-for="Correo"></span></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group has-feedback">
+                            <input id="txtCurp" type="text" class="form-control" placeholder="Curp" maxlength="18" name="Curp">
+                            <span class="glyphicon glyphicon-qrcode form-control-feedback"></span>
+                        </div>
+                        <div class="validator-msg"><span class="k-invalid-msg" data-for="Curp"></span></div>
+                    </div>
+
+                    <button id="btnIngresar" type="submit" class="btn btn-primary block full-width m-b">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/plugins/Kendo")
+    @Scripts.Render("~/plugins/sweetAlert")
+    @Scripts.Render("~/plugins/toastr")
+
+    <script src="~/Scripts/Login/Login.js"></script>
+    <input type="hidden" id="urlRedirect" value="@Url.Action("LockScreen","Login")" />
+</body>
+
+</html>
+
+

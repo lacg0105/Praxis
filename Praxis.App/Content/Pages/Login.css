@@ -1,0 +1,413 @@
+﻿.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    overflow: visible;
+    z-index: 99;
+    clear: both;
+    background-color: rgba(0,0,0,.6);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#99000000',endColorstr='#99000000');
+    border-top: none;
+}
+
+.k-invalid {
+    border-color: red;
+}
+
+/***********************************************************************/
+/*  iPhone 6 Media Queries  */
+
+/*iPhone 6 in portrait & landscape*/
+/*@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) { 
+    #dvDireccion {
+        display:none;
+    }
+
+     #dvSCARDesc{
+        display:none;
+    }
+
+    .middle-box{
+        padding-top:0px !important;
+    }
+   
+}*/
+
+
+/*iPhone 6 in landscape*/
+/*@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : landscape) { 
+    #dvDireccion {
+        display:none;
+    }
+
+     #dvSCARDesc{
+        display:none;
+    }
+
+    .middle-box{
+        padding-top:0px !important;
+    }
+}*/
+
+
+/*iPhone 6 in portrait*/
+/*@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : portrait){ 
+    #dvDireccion {
+        display:none;
+    }
+
+     #dvSCARDesc{
+        display:none;
+    }
+
+    .middle-box{
+        padding-top:0px !important;
+    }
+}*/
+/***********************************************************************/
+
+
+/***********************************************************************/
+/*  iPhone 6 Plus Media Queries  */
+
+/*iPhone 6 Plus in portrait & landscape*/
+/*@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) { 
+    #dvDireccion {
+        display:none;
+    }
+
+     #dvSCARDesc{
+        display:block;
+    }
+
+    .middle-box{
+        padding-top:0px !important;
+    }
+}*/
+
+/*iPhone 6 Plus in landscape*/
+/*@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) 
+and (orientation : landscape) { 
+   #dvDireccion {
+        display:none;
+    }
+
+    #dvSCARDesc{
+        display:block;
+    }
+
+    .middle-box{
+        padding-top:0px !important;
+    }
+}*/
+
+/*iPhone 6 Plus in portrait*/
+/*@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) 
+and (orientation : portrait) { 
+    #dvDireccion {
+        display:none;
+    }
+
+    #dvSCARDesc{
+        display:block;
+    }
+
+    .middle-box{
+        padding-top:0px !important;
+    }
+}*/
+/***********************************************************************/
+
+
+/***********************************************************************/
+/*  iPhone 5 & 5S Media Queries */
+
+/*iPhone 5 & 5S in portrait & landscape*/
+/*@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px){ 
+    #dvDireccion {
+        display:none;
+    }
+
+     #dvSCARDesc{
+        display:none;
+    }
+
+    .middle-box{
+        padding-top:0px !important;
+    }
+
+}*/
+
+/*iPhone 5 & 5S in landscape*/
+/*@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : landscape) { 
+     #dvDireccion {
+        display:none;
+    }
+
+     #dvSCARDesc{
+        display:none;
+    }
+
+    .middle-box{
+        padding-top:0px !important;
+    }
+}*/
+
+/*iPhone 5 & 5S in portrait*/
+/*@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : portrait){ 
+     #dvDireccion {
+        display:none;
+    }
+
+     #dvSCARDesc{
+        display:none;
+    }
+
+    .middle-box{
+        padding-top:0px !important;
+    }
+}*/
+
+
+/*@media only screen 
+and (max-width : 768px){ 
+    #dvDireccion {
+        display:none;
+    }
+
+     #dvSCARDesc{
+        display:none;
+    }
+
+    .middle-box{
+        padding-top:0px !important;
+    }
+
+}*/
+
+
+/*@media only screen 
+and (max-width : 350px){ 
+   #dvDireccion {
+        display:none;
+    }
+
+     #dvSCARDesc{
+        display:none;
+    }
+
+    .middle-box{
+        padding-top:0px !important;
+    }
+
+    .footer{
+        display:none;
+    }
+
+}*/
+
+/***********************************************************************/
+/*@media (min-width: 1200px) {
+    .middle-box {
+        padding-top: 240px;
+    }
+}*/   
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .middle-box {
+        padding-top: 130px;
+    }
+}
+
+@media (min-width: 823px) and (max-width: 1023px) {
+    .ibox-content {
+        margin-top: 0px;
+        height: 380px;
+    }
+
+    .logoPraxis {
+        display: block;
+        height:100px;
+        margin-left: 60px;
+    }
+
+    .middle-box {
+        padding-top: 15px;
+    }
+}
+
+@media (min-width: 812px) and (max-width: 822px) {
+    .ibox-content {
+        margin-top: 0px;
+        height: 355px;
+    }
+
+    .logoPraxis {
+        display: block;
+        height: 70px;
+        margin-left: 84px
+    }
+
+    .middle-box {
+        padding-top: 10px;
+    }
+}
+
+/* Tablets en horizonal y escritorios normales*/
+@media (min-width: 768px) and (max-width: 811px) {
+    .ibox-content{
+        margin-top: 230px;
+    }
+
+    .logoPraxis {
+        display: block;
+    }
+}
+
+/* Móviles en horizontal o tablets en vertical*/
+@media (min-width: 737px) and (max-width: 767px) {
+    .ibox-content {
+        margin-top: 300px;
+    }
+
+    .middle-box {
+        padding-top: 20px;
+    }
+}
+
+    @media (min-width: 732px) and (max-width: 736px) {
+        .ibox-content {
+            margin-top: 0px;
+            height: 394px;
+        }
+
+        .middle-box {
+            padding-top: 10px;
+        }
+
+        .logoPraxis {
+            display: block;
+            height: 100px;
+            margin-left: 60px;
+        }
+    }
+
+    @media (min-width: 668px) and (max-width: 731px) {
+        .ibox-content {
+            margin-top: 0px;
+            height: 390px;
+        }
+
+        .logoPraxis {
+            display: block;
+            height: 100px;
+            margin-left: 60px;
+        }
+
+        .middle-box {
+            padding-top: 10px;
+        }
+    }
+
+    @media (min-width: 641px) and (max-width: 667px) {
+        .middle-box {
+            padding-top: 10px;
+        }
+
+        .ibox-content {
+            margin-top: 0px;
+            height: 357px;
+        }
+
+        .logoPraxis {
+            display: block;
+            height: 70px;
+            margin-left: 84px;
+        }
+    }
+
+    @media (min-width: 569px) and (max-width: 640px) {
+        .ibox-content {
+            margin-top: 0px;
+            height: 342px;
+        }
+
+        .logoPraxis {
+            display: block;
+            height: 60px;
+            margin-left: 90px;
+        }
+
+        .middle-box {
+            padding-top: 10px;
+        }
+    }
+
+    @media (min-width: 480px) and (max-width: 568px) {
+        .middle-box {
+            padding-top: 10px;
+        }
+
+        .ibox-content {
+            height: 300px;
+        }
+
+        .logoPraxis {
+            display: none;
+            height: 60px;
+            margin-left: 90px;
+        }
+    }
+
+    /* Móviles en vertical*/
+    /*@media (max-width: 480px) {
+    
+}*/
+
+    @media (min-width: 360px) and (max-width: 479px) {
+        .ibox-content {
+            margin-top: 38px;
+            height: 500px;
+        }
+
+        .logoPraxis {
+            display: block;
+        }
+    }
+
+    @media (min-width: 320px) and (max-width: 359px) {
+        .ibox-content {
+            margin-top: 0px;
+            height: 480px;
+        }
+
+        .logoPraxis {
+            display: block;
+        }
+
+        .middle-box {
+            padding-top: 44px;
+        }
+    }

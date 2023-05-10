@@ -1,0 +1,253 @@
+﻿@using Praxis.Model.ViewModel;
+@model UsuariosViewModel
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Datos del usuario.</h5>
+                    <div class="ibox-tools">
+
+                        <p>
+                            <a class="btn btn-success btn-outline" href="@Url.Action("Usuarios", "Catalogos")">
+                                <i class="fa fa-save"></i> Cancelar
+                            </a>
+                            <span class="cssWritingAccess">
+                                <a class="btn btn-success btn-outline" id="btnGuardar">
+                                    <i class="fa fa-file-excel-o"></i> Guardar
+                                </a>
+                            </span>
+                        </p>
+                    </div>
+
+
+                </div>
+                <div class="ibox" id="ibox2">
+                    <div class="ibox-content">
+                        <div class="sk-spinner sk-spinner-wave">
+                            <div class="sk-rect1"></div>
+                            <div class="sk-rect2"></div>
+                            <div class="sk-rect3"></div>
+                            <div class="sk-rect4"></div>
+                            <div class="sk-rect5"></div>
+                        </div>
+                        <form class="form-horizontal" role="form" id="frmUser" data-role="validator" novalidate="novalidate">
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Nombre</label>
+                                <div class="col-sm-10">
+                                    <input id="txtNombre" placeholder="Escriba el texto" class="form-control" type="text" required="required" name="Nombre"
+                                           pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$" validationmessage="Este campo solo acepta letras, tambien revise que solo tenga 1 espacio entre nombres y ninguno al final."
+                                           value="@Model.Nombre">
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="Nombre"></span></div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Correo</label>
+                                <div class="col-sm-10">
+                                    <input id="txtCorreo" placeholder="Escriba el correo" class="form-control" required="required" name="Correo" type="email" validationmessage="No es un correo electrónico válido."
+                                           value="@Model.Correo">
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="Correo"></span></div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Curp</label>
+                                <div class="col-sm-10">
+                                    <input id="txtCurp" placeholder="Escriba su Curp" class="form-control" required="required" name="Curp" type="text" validationmessage="Ingrese su curp."
+                                           value="@Model.Curp" maxlength="16" size="16">
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="Curp"></span></div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group" id="dvPwd">
+                                <label class="col-sm-2 control-label">Contraseña</label>
+                                <div class="col-sm-10">
+                                    <input id="txtPwd" placeholder="Escriba la contraseña" class="form-control" type="password" required="required" maxlength="15"
+                                           name="PwdStr" pattern="^(?=.*[0-9])(?=.*[+!&#64;#$&*])(?![a-z]*$)(?=.*[A-Z])(?!\d*$)(?!\p{P}*$)(?![^a-zA-Z\d\p{P}]*$).{8,}$"
+                                           validationmessage="La contraseña debe contener mayúsculas, minúsculas, números, al menos 1 carácter especial [+!&#64;#$&*] y longitud superior a 8 caracteres">
+                                    <span class="k-invalid-msg" data-for="PwdStr"></span>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </div>
+
+
+                            <div class="form-group" id="PwdConfirm">
+                                <label class="col-sm-2 control-label">Confirmar contraseña</label>
+                                <div class="col-sm-10">
+                                    <input id="txtPwdConfirm" placeholder="Confirme la contraseña" class="form-control" type="password" required="required"
+                                           name="PwdConfirm" pattern="^(?=.*[0-9])(?=.*[+!&#64;#$&*])(?![a-z]*$)(?=.*[A-Z])(?!\d*$)(?!\p{P}*$)(?![^a-zA-Z\d\p{P}]*$).{8,}$"
+                                           validationmessage="La contraseña debe contener mayúsculas, minúsculas, números, al menos 1 carácter especial [+!&#64;#$&*] y longitud superior a 8 caracteres"
+                                           data-required-msg="Debe confirmar su contraseña"
+                                           data-matches="#txtPwd" data-matches-msg="Las contraseñas no coinciden">
+                                    <span class="k-invalid-msg" data-for="PwdConfirm"></span>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Institucion</label>
+                                <div class="col-sm-10">
+                                    <select id="selInstitucion" style="width:100%" name="IdInstitucion" required="required"></select>
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="IdInstitucion"></span></div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Rol</label>
+                                <div class="col-sm-10">
+                                    <select id="selRol" style="width:100%" name="IdRol" required="required"></select>
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="IdRol"></span></div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group perfilUsuario">
+                                <label class="col-sm-2 control-label">Fecha Nacimiento</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="dpFechaNacimiento" name="FechaNacimiento" required="required" validationmessage="Seleccione una fecha">
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="FechaNacimiento"></span></div>
+                                </div>
+                            </div>
+                            <div class="form-group perfilUsuario">
+                                <label class="col-sm-2 control-label">RFC</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="txtRFC" name="Rfc" class="form-control" placeholder="Escriba RFC" required="required" validationmessage="Escriba el RFC">
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="Rfc"></span></div>
+                                </div>
+                            </div>
+                            <div class="form-group perfilUsuario">
+                                <label class="col-sm-2 control-label">Profesión</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="txtProfesion" name="Profesion" class="form-control" placeholder="Escriba la profesión">
+                                </div>
+                            </div>
+                            <div class="form-group perfilUsuario">
+                                <label class="col-sm-2 control-label">Cédula</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="txtCedula" name="Cedula" class="form-control" placeholder="Escriba la cédula" required="required" validationmessage="Escriba la cédula la cédula profesional">
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="Cedula"></span></div>
+                                </div>
+                            </div>
+                            <div class="form-group perfilUsuario">
+                                <label class="col-sm-2 control-label">Consultorio</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="txtConsultorio" name="Consultorio" class="form-control" placeholder="Escriba el consultorio" required="required" validationmessage="Escriba el consultorio">
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="Consultorio"></span></div>
+                                </div>
+                            </div>
+                            <div class="form-group perfilUsuario">
+                                <label class="col-sm-2 control-label">Dirección</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="txtDireccion" name="Direccion" class="form-control" placeholder="Escriba la dirección" required="required" validationmessage="Escriba la dirección">
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="Direccion"></span></div>
+                                </div>
+                            </div>
+                            <div class="form-group perfilUsuario">
+                                <label class="col-sm-2 control-label">Alcaldía / Municipio</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="txtAlcaldiaMunicipio" name="AlcaldiaMunicipio" class="form-control" placeholder="Escriba la alcaldía o municipio" required="required" validationmessage="Escriba la alcaldía o municipio">
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="AlcaldiaMunicipio"></span></div>
+                                </div>
+                            </div>
+                            <div class="form-group perfilUsuario">
+                                <label class="col-sm-2 control-label">Estado</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="txtEstado" name="Estado" class="form-control" placeholder="Escriba el estado" required="required" validationmessage="Escriba el estado">
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="Estado"></span></div>
+                                </div>
+                            </div>
+                            <div class="form-group perfilUsuario">
+                                <label class="col-sm-2 control-label">Código Postal</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="txtCodigoPostal" name="CodigoPostal" class="form-control" placeholder="Escriba el código postal" required="required" validationmessage="Escriba el código postal">
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="CodigoPostal"></span></div>
+                                </div>
+                            </div>
+                            <div class="form-group perfilUsuario">
+                                <label class="col-sm-2 control-label">Costo Consulta</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="txtCostoConsulta" name="CostoConsulta" class="form-control" placeholder="Escriba el costo de la consulta" required="required" validationmessage="Escriba el costo de la consulta">
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="CostoConsulta"></span></div>
+                                </div>
+                            </div>
+                            <div class="form-group perfilUsuario">
+                                <label class="col-sm-2 control-label">Consulta Domicilio</label>
+                                <div class="col-sm-10">
+                                    <input type="checkbox" class="js-switch" checked />
+                                </div>
+                            </div>
+                            <div class="form-group perfilUsuario">
+                                <label class="col-sm-2 control-label">Consulta Videollamada</label>
+                                <div class="col-sm-10">
+                                    <input type="checkbox" class="js-switch" checked />
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Área</label>
+                                <div class="col-sm-10">
+                                    <select id="SelArea" style="width:100%" name="IdArea" required="required"></select>
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="IdArea"></span></div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group" id="dvIdStatus">
+                                <label class="col-sm-2 control-label">Estatus</label>
+                                <div class="col-sm-10">
+                                    <select id="SelEstatus" style="width:100%" name="IdEstatusUsuario" required="required"></select>
+                                    <div class="validator-msg"><span class="k-invalid-msg" data-for="IdEstatusUsuario"></span></div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Foto</label>
+                                <div class="col-sm-5">
+                                    <input id="flFoto" type="file" name="ArchivoFoto" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <img alt="image" class="img-circle" src="~/Content/Img/Usuarios/@Model.NombreImagen" width="68" height="68"
+                                         onerror="this.onerror = null; this.src = '../Content/Img/Icono%20Empresario.png';" />
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <input type="hidden" id="hdnIdArea" value="@Model.IdArea" />
+                            <input type="hidden" id="hdnIdStatus" value="@Model.IdEstatusUsuario" />
+                            <input type="hidden" id="hdnIdRol" value="@Model.IdRol" />
+                            <input type="hidden" id="hdnMov" value="@ViewBag.Mov" />
+                            <input type="hidden" id="hdnUrlUsers" value="@Url.Action("Usuarios", "Catalogos")" />
+                            <input type="hidden" id="hdnIdSubSubModule" value="@ViewBag.IdSubSubModule" />
+                            <input id="hdnIdUser" type="hidden" value="@Model.IdUsuario" name="IdUsuario" />
+                            <input type="hidden" id="hdnIdInstitucion" value="@Model.IdInstitucion" />
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/Catalogos/InformacionUsuarios.js"></script>
+    @Scripts.Render("~/plugins/dataPicker")
+}
+
+@section Styles {
+    @Styles.Render("~/plugins/dataPickerStyles")
+}
